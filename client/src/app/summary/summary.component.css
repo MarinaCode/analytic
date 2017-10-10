@@ -1,0 +1,6 @@
+ .tab-body chart {
+   display: flex;
+   justify-content: flex-end;
+   width: 400px;
+   margin-top: 20px;
+ }

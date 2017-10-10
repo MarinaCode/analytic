@@ -1,0 +1,356 @@
+<div class="tab-body seo">
+  <md-card id="seo_overview">
+    <md-card-title><p>SEO Overview</p></md-card-title>
+    <md-card-content>
+      <div class="indexation-overview">
+        <div class="indexation-text">
+          <div>
+            <h3 class="title"><b><a href="">{{title}}</a></b></h3>
+            <p class="url">{{url}}</p>
+            <p class="long">{{ resultLong}}</p>
+          </div>
+          <div>
+            <h3 class="title"><a href="">{{title}}</a></h3>
+            <p class="url">{{this.url}}</p>
+            <p class="short">{{ resultShort }}</p>
+          </div>
+        </div>
+        <div>
+          <chart [options]="options"></chart>
+        </div>
+      </div>
+    </md-card-content>
+  </md-card>
+
+  <md-card>
+    <md-card-title><p>{{ 'MAD_HEADER_INFORMATION' | translate }}</p></md-card-title>
+    <md-card-content>
+      <ul class="card-list">
+        <li [ngClass]="[seoScore.titleClass == 0 ? 'valid' : ( seoScore.titleClass == 1 ? 'warning' : 'critical')]">
+          <div class="left-side"><p><span></span>{{ 'MAD_PAGE_TITLE' | translate }}</p></div>
+          <div class="right-side">
+            <div class="infoBlock">
+              <img src="../../assets/main/information_icon.png" class="infoIcon"/>
+              <p class="informationBlock">Between 140 and 170 characters (spaces included) are advised. The meta description tag is read by search engines and is
+                displayed in SERPs. This tag describes the page content without being a straight forward list of keywords and must contain
+                the most important keywords of the page. Ensure that each of your web pages has a unique meta description.
+                The meta description tag should appear after the title tag inside the head tag.</p>
+            </div>
+            <div class="right-side-block" *ngIf="title">
+              <p class="title" *ngIf="seoScore.titleClass == 0">{{ 'MAD_PAGE_TITLE_CORRECT' | translate }}.</p>
+              <p class="title" *ngIf="seoScore.titleClass != 0">{{ 'MAD_PAGE_DONT_CORRECT' | translate }}.</p>
+              <div class="code">
+                <p class="p-width100">{{title}}</p>
+              </div>
+              <p *ngIf="title">{{seoScore.titleCount}} {{ 'MAD_PAGE_CHARACTERS' | translate }}</p>
+            </div>
+            <div class="right-side-block" *ngIf="!title">
+              <div class="code">{{ 'MAD_NO_TITLE' | translate }}</div>
+              <p> 0 {{ 'MAD_PAGE_CHARACTERS' | translate }}</p>
+            </div>
+          </div>
+        </li>
+        <li [ngClass]="[seoScore.metaDescriptionClass == 0 ? 'valid' : ( seoScore.metaDescriptionClass == 1 ? 'warning' : 'critical')]">
+          <div class="left-side"><p><span></span>{{ 'MAD_META_DESCRIPTION' | translate }}</p></div>
+          <div class="right-side">
+            <div class="infoBlock">
+              <img src="../../assets/main/information_icon.png" class="infoIcon"/>
+              <p class="informationBlock">Between 140 and 170 characters (spaces included) are advised. The meta description tag is read by search engines and is
+                displayed in SERPs. This tag describes the page content without being a straight forward list of keywords and must contain
+                the most important keywords of the page. Ensure that each of your web pages has a unique meta description.
+                The meta description tag should appear after the title tag inside the head tag.</p>
+            </div>
+            <div class="right-side-block" *ngIf="seoScore.metaDescription">
+              <p *ngIf="seoScore.metaDescriptionClass == 0">{{ 'MAD_META_DESCRIPTION_CORRECT' | translate }}</p>
+              <p *ngIf="seoScore.metaDescriptionClass != 0">{{ 'MAD_META_DESCRIPTION_DONT_CORRECT' | translate }}</p>
+              <div class="code">
+                <p class="p-width100">{{seoScore.metaDescription}}</p>
+              </div>
+              <p *ngIf="seoScore.metaDescription" >{{seoScore.descriptionCount}}  {{ 'MAD_PAGE_CHARACTERS' | translate }}</p>
+            </div>
+            <div class="right-side-block" *ngIf="!seoScore.metaDescription">
+              <div class="code">{{ 'MAD_PAGE_CHARACTERS' | translate }}</div>
+              <p *ngIf="descriptionCount == 0">{{descriptionCount}} {{ 'MAD_PAGE_CHARACTERS' | translate }}</p>
+            </div>
+          </div>
+        </li>
+        <li class="info">
+          <div class="left-side"><p><span></span>{{ 'MAD_META_ATTRIBUTE' | translate }}</p></div>
+          <div class="right-side">
+            <div class="infoBlock">
+              <img src="../../assets/main/information_icon.png" class="infoIcon"/>
+              <p class="informationBlock">Between 140 and 170 characters (spaces included) are advised. The meta description tag is read by search engines and is
+                displayed in SERPs. This tag describes the page content without being a straight forward list of keywords and must contain
+                the most important keywords of the page. Ensure that each of your web pages has a unique meta description.
+                The meta description tag should appear after the title tag inside the head tag.</p>
+            </div>
+            <div class="right-side-block"  *ngIf="seoScore.metaDescription">
+              <p>{{ 'MAD_META_ATTRIBUTE_FOUND' | translate }}</p>
+              <button (click)="show($event)"  id="metaBtnAttr">{{ 'MAD_SEE_RESULT' | translate }}
+                <img src="../../assets/main/select_icon.png">
+              </button>
+              <table class="attribute links" id="metaAttrId" style="display:none" #tablemetaData>
+                <tr>
+                  <td>Type</td>
+                  <td>Meta</td>
+                  <td>Content</td>
+                </tr>
+                <tr *ngFor="let meta of metaDataAll">
+                  <td>{{meta.type_}}</td>
+                  <td>{{meta.meta_}}</td>
+                  <td>{{meta.content}}</td>
+                </tr>
+              </table>
+              <app-pagination [limit]="limit" [sitesCount]="metaDataCount" (pageChange)="onNavigateMetaData($event)"></app-pagination>
+              <div class="right-side-block" *ngIf="!seoScore.metaDescription">{{ 'MAD_META_ATTRIBUTE_DONT_FOUND' | translate }} </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </md-card-content>
+  </md-card>
+  <md-card>
+    <md-card-title><p>{{ 'MAD_INDEXATION' | translate }}</p></md-card-title>
+    <md-card-content>
+      <ul class="card-list">
+        <li [ngClass]="[metaRobotClass == 0 ? 'valid' : 'warning']">
+          <div class="left-side"><p><span></span>{{ 'MAD_ROBOTS' | translate }}</p></div>
+          <div class="right-side">
+            <div class="infoBlock">
+              <img src="../../assets/main/information_icon.png" class="infoIcon"/>
+              <p class="informationBlock">Between 140 and 170 characters (spaces included) are advised. The meta description tag is read by search engines and is
+                displayed in SERPs. This tag describes the page content without being a straight forward list of keywords and must contain
+                the most important keywords of the page. Ensure that each of your web pages has a unique meta description.
+                The meta description tag should appear after the title tag inside the head tag.</p>
+            </div>
+            <div class="right-side-block" >
+              <p class="title">{{ 'MAD_ROBOTS_FOR' | translate }}</p>
+              <div class="code" *ngIf="isMetaRobotExist">
+                <p class="p-width100">{{ isMetaRobotExist }} {{ 'MAD_META_ROBOT_FOUND' | translate }}</p>
+                <div class="infoBlock">
+                  <img src="../../assets/main/information_icon.png" class="infoIcon"/>
+                  <p class="informationBlock">Between 140 and 170 characters (spaces included) are advised. The meta description tag is read by search engines and is
+                    displayed in SERPs. This tag describes the page content without being a straight forward list of keywords and must contain
+                    the most important keywords of the page. Ensure that each of your web pages has a unique meta description.
+                    The meta description tag should appear after the title tag inside the head tag.</p>
+                </div>
+              </div>
+              <div class="code" *ngIf="!isMetaRobotExist">{{ 'MAD_META_ROBOT_DONT_FOUND' | translate }}</div>
+            </div>
+          </div>
+        </li>
+        <li [ngClass]="[metaRobotTextClass == 0 ? 'valid' : 'warning']">
+          <div class="left-side"><p><span></span>{{ 'MAD_ROBOTS_TXT' | translate }}</p></div>
+          <div class="right-side">
+            <div class="infoBlock">
+              <img src="../../assets/main/information_icon.png" class="infoIcon"/>
+              <p class="informationBlock">Between 140 and 170 characters (spaces included) are advised. The meta description tag is read by search engines and is
+                displayed in SERPs. This tag describes the page content without being a straight forward list of keywords and must contain
+                the most important keywords of the page. Ensure that each of your web pages has a unique meta description.
+                The meta description tag should appear after the title tag inside the head tag.</p>
+            </div>
+            <div class="right-side-block" *ngIf="robotsText">
+              <p class="title">{{ 'MAD_ROBOTS_TXT_FOUND' | translate }}</p>
+              <button md-button (click)="show($event)">{{ 'MAD_SEE_ROBOTS_TXT' | translate }}</button>
+              <div [innerHTML]="robotsText" class="open" style="display:none"></div>
+            </div>
+            <div class="right-side-block" *ngIf="!robotsText">
+              <p class="title">{{ 'MAD_ROBOTS_TXT_DONT_FOUND' | translate }}</p>
+            </div>
+          </div>
+        </li>
+        <li  [ngClass]="[siteMapClass == 0 ? 'valid' : 'warning']">
+          <div class="left-side"><p><span></span>{{ 'MAD_SITEMAP' | translate }}</p></div>
+          <div class="right-side">
+            <div class="infoBlock">
+              <img src="../../assets/main/information_icon.png" class="infoIcon"/>
+              <p class="informationBlock">Between 140 and 170 characters (spaces included) are advised. The meta description tag is read by search engines and is
+                displayed in SERPs. This tag describes the page content without being a straight forward list of keywords and must contain
+                the most important keywords of the page. Ensure that each of your web pages has a unique meta description.
+                The meta description tag should appear after the title tag inside the head tag.</p>
+            </div>
+            <div class="right-side-block"  *ngIf="siteMapXML">
+              <p>{{ 'MAD_SITEMAP_FOUND' | translate }}</p>
+              <button md-button (click)="show($event)">{{ 'MAD_SEE_SITEMAP' | translate }}</button>
+              <div [innerHTML]="siteMapXML" class="open" style="display:none"></div>
+            </div>
+            <div class="right-side-block" *ngIf="!siteMapXML">
+              <p>{{ 'MAD_SITEMAP_DONT_FOUND' | translate }}</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </md-card-content>
+  </md-card>
+  <md-card>
+    <md-card-title><p>{{ 'MAD_DUPLICATE' | translate }}</p></md-card-title>
+    <md-card-content>
+      <ul class="card-list">
+        <!--<li>-->
+          <!--<div class="left-side"><p><span></span>WWW redirection 301</p></div>-->
+          <!--<div class="right-side-block">md-content-->
+            <!--<p><b>youtube.com</b> redirects to <b>www.youtube.com</b></p>-->
+          <!--</div>-->
+        <!--</li>-->
+        <li [ngClass]="[canonicalClass == 0 ? 'valid' : 'warning']">
+          <div class="left-side"><p><span></span>{{ 'MAD_LINK_CANONICAL' | translate }}</p></div>
+          <div class="right-side">
+            <div class="infoBlock">
+              <img src="../../assets/main/information_icon.png" class="infoIcon"/>
+              <p class="informationBlock">Between 140 and 170 characters (spaces included) are advised. The meta description tag is read by search engines and is
+                displayed in SERPs. This tag describes the page content without being a straight forward list of keywords and must contain
+                the most important keywords of the page. Ensure that each of your web pages has a unique meta description.
+                The meta description tag should appear after the title tag inside the head tag.</p>
+            </div>
+            <div class="right-side-block" *ngIf="canonicalURL">
+              <p>{{ 'MAD_LINK_CANONICAL_FOUND' | translate }}</p>
+              <div class="code">{{canonicalURL}}</div>
+            </div>
+            <div class="right-side-block" *ngIf="!canonicalURL">
+              <p>{{ 'MAD_LINK_CANONICAL_DONT_FOUND' | translate }}</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </md-card-content>
+  </md-card>
+  <md-card>
+    <md-card-title><p>{{ 'MAD_MULTIMEDIA' | translate }}</p></md-card-title>
+    <md-card-content>
+      <ul class="card-list" >
+        <li [ngClass]="[alternativeClass == 0 ? 'valid' : 'warning']" >
+          <div class="left-side"><p><span></span>{{ 'MAD_ALTERNATIVE' | translate }}</p></div>
+          <div class="right-side">
+            <div class="infoBlock">
+              <img src="../../assets/main/information_icon.png" class="infoIcon"/>
+              <p class="informationBlock">Between 140 and 170 characters (spaces included) are advised. The meta description tag is read by search engines and is
+                displayed in SERPs. This tag describes the page content without being a straight forward list of keywords and must contain
+                the most important keywords of the page. Ensure that each of your web pages has a unique meta description.
+                The meta description tag should appear after the title tag inside the head tag.</p>
+            </div>
+            <div class="right-side-block">
+              <p *ngIf="alternativeTextCount > 0"><i>{{alternativeTextCount}} / {{alternative.length }}</i> {{ 'MAD_ALTERNATIVE_FOUND_IMAGES' | translate }}</p>
+              <p class="title" *ngIf="alternativeTextCount <= 0">{{ 'MAD_ALTERNATIVE_OFFER' | translate }}</p>
+              <button md-button (click)="show($event)" >{{ 'MAD_ALTERNATIVE_SEE_IMAGES' | translate }}</button>
+              <table cellspacing="12" class="links" style="display: none;" #tableAlternative>
+                <tr>
+                  <td>Src</td>
+                  <td>Alt</td>
+                </tr>
+                <tr  *ngFor="let alter of allAlternativeData; let i = index">
+                  <td>{{alter.alt}}</td>
+                  <td>{{alter.image}}</td>
+                </tr>
+              </table>
+              <app-pagination [limit]="limit" [sitesCount]="allAlternativeCount" (pageChange)="onNavigateAlternative($event)"></app-pagination>
+              <div class="open"></div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </md-card-content>
+  </md-card>
+  <md-card>
+    <md-card-title><p>{{ 'MAD_NETWORKING' | translate }}</p></md-card-title>
+    <md-card-content>
+      <ul class="card-list">
+        <li [ngClass]="[seoScore.correctLinkClass == 0 ? 'valid' : ( seoScore.correctLinkClass == 1 ? 'warning' : 'critical')]">
+          <div class="left-side"><p><span></span>{{ 'MAD_NUMBER_OF_LINKS' | translate }} </p></div>
+          <div class="right-side">
+            <div class="infoBlock">
+              <img src="../../assets/main/information_icon.png" class="infoIcon"/>
+              <p class="informationBlock">Between 140 and 170 characters (spaces included) are advised. The meta description tag is read by search engines and is
+                displayed in SERPs. This tag describes the page content without being a straight forward list of keywords and must contain
+                the most important keywords of the page. Ensure that each of your web pages has a unique meta description.
+                The meta description tag should appear after the title tag inside the head tag.</p>
+            </div>
+            <div class="right-side-block">
+              <p>There are <i>{{ correctLinksCount }}/{{allLinksCount }}</i> {{ 'MAD_NUMBER_OF_LINKS_IN_PAGE' | translate }} </p>
+              <button md-button (click)="show($event)" > {{ 'MAD_SEE_RESULT' | translate }} </button>
+              <table class="links"  style="display: none;">
+                <tr>
+                  <td>N</td>
+                  <td>Href</td>
+                </tr>
+                <tr *ngFor="let data of allLinksData; let i = index ">
+                  <td>{{i + indexLinks + 1}}</td>
+                  <td>{{data}}</td>
+                </tr>
+              </table>
+              <div class="pageination-control-block">
+                <app-pagination [limit]="limit" [sitesCount]="allLinksCount" (pageChange)="onNavigateLinks($event)"></app-pagination>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li [ngClass]="[extecdrnalClass == 0 ? 'valid' : 'critical']" >
+          <div class="left-side"><p><span></span>{{ 'MAD_LINK_JUICE' | translate }} </p></div>
+          <div class="right-side">
+            <div class="infoBlock">
+              <img src="../../assets/main/information_icon.png" class="infoIcon"/>
+              <p class="informationBlock">Between 140 and 170 characters (spaces included) are advised. The meta description tag is read by search engines and is
+                displayed in SERPs. This tag describes the page content without being a straight forward list of keywords and must contain
+                the most important keywords of the page. Ensure that each of your web pages has a unique meta description.
+                The meta description tag should appear after the title tag inside the head tag.</p>
+            </div>
+            <div class="right-side-block">
+              <p class="title"  *ngIf="externalClass == 0">{{ 'MAD_MORE_INTERNAL' | translate }}</p>
+              <p class="title"  *ngIf="externalClass == 2">{{ 'MAD_MORE_EXTERNAL' | translate }}</p>
+              <p><i>{{externalPercent}}%</i> {{ 'MAD_PERCENT_OF_EXTERNAL' | translate }}{{external}}/{{allLinksCount}} {{ 'MAD_LINKS' | translate }}</p>
+            </div>
+          </div>
+        </li>
+        <li  [ngClass]="[underscoreClass == 0 ? 'valid' : 'warning']"  >
+          <div class="left-side"><p><span></span>{{ 'MAD_LINK_WITH_UNDERSCORE' | translate }}</p></div>
+          <div class="right-side">
+            <div class="infoBlock">
+              <img src="../../assets/main/information_icon.png" class="infoIcon"/>
+              <p class="informationBlock">Between 140 and 170 characters (spaces included) are advised. The meta description tag is read by search engines and is
+                displayed in SERPs. This tag describes the page content without being a straight forward list of keywords and must contain
+                the most important keywords of the page. Ensure that each of your web pages has a unique meta description.
+                The meta description tag should appear after the title tag inside the head tag.</p>
+            </div>
+            <div class="right-side-block">
+              <p class="title">{{ 'MAD_LINK_WITH_UNDERSCORE' | translate }}</p>
+              <p class="p-width100"><i>{{underscorePercent}}%</i>{{ 'MAD_INTERNAL_LINK_NOTCONTAIN_UNDERSCORE' | translate }} <!--{{underScoreCount}}/{{allLinks}} {{ 'MAD_LINKS' | translate }}--></p>
+              <table class="allLinks">
+                <tr *ngFor="let data of allUnderscoreLinksData">
+                  <td>{{ data }}</td>
+                </tr>
+              </table>
+              <app-pagination [limit]="limit" [sitesCount]="allLinksCount" (pageChange)="onNavigateUnderscoreLinks($event)"></app-pagination>
+            </div>
+          </div>
+        </li>
+        <li  [ngClass]="[followClass == 0 ? 'valid' : (followPercentClass == 1 ? 'warning' : 'critical')]">
+          <div class="left-side"><p><span></span>{{ 'MAD_FOLLOW_LINKS' | translate }} </p></div>
+          <div class="right-side">
+            <div class="infoBlock">
+              <img src="../../assets/main/information_icon.png" class="infoIcon"/>
+              <p class="informationBlock">Between 140 and 170 characters (spaces included) are advised. The meta description tag is read by search engines and is
+                displayed in SERPs. This tag describes the page content without being a straight forward list of keywords and must contain
+                the most important keywords of the page. Ensure that each of your web pages has a unique meta description.
+                The meta description tag should appear after the title tag inside the head tag.</p>
+            </div>
+            <div class="right-side-block">
+              <p class="p-width100"><i>{{followPercent}}%</i> {{ 'MAD_LINKS_ARE_FOLLOWED_BY_SEARCH' | translate }} <!--{{follow}}/{{ allLinks }} {{ 'MAD_LINKS' | translate }}--></p>
+              <table class="allLinks">
+                <tr *ngFor="let data of allFollowLinksData">
+                  <td>{{ data }}</td>
+                </tr>
+              </table>
+              <app-pagination [limit]="limit" [sitesCount]="allLinksCount" (pageChange)="onNavigateFollowLinks($event)"></app-pagination>
+            </div>
+          </div>
+        </li>
+        <!--<li>-->
+          <!--<div class="left-side"><p><span></span>Reliable links</p></div>-->
+          <!--<div class="right-side-block">-->
+            <!--<p class="title">Links are reliable.</p>-->
+            <!--<p><i>100%</i>100% are reliable links whether 65/65 links.</p>-->
+          <!--</div>-->
+        <!--</li>-->
+      </ul>
+    </md-card-content>
+  </md-card>
+</div>

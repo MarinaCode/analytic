@@ -1,0 +1,37 @@
+<div class="popup" *ngIf="signUpVisiblity">
+  <md-card class="login-popup">
+    <md-card-title>Login to Madcrocs </md-card-title>
+    <md-card-content>
+      <div layout="column" class="md-inline-form">
+        <form>
+          <table cellspacing="0">
+            <tr class="share-block">
+              <td>
+                <button md-button class="facebook" (click)="loginFacebook()">Facebook</button>
+                <button md-button class="google">Google+</button>
+                <span>or</span>
+              </td>
+            </tr>
+            <tr class="login">
+              <td>
+                <md-input #log placeholder="Email" style="width:100%"></md-input>
+              </td>
+            </tr>
+            <tr class="password"><td><md-input #pass placeholder="Password" style="width: 100%"></md-input></td></tr>
+            <tr class="password confirm"><td><md-input #passconfirm placeholder="Confirm Password" style="width: 100%"></md-input></td></tr>
+            <tr class="accept">
+              <td>
+                <md-checkbox  aria-label="Checkbox 1">
+                  I accept Terms of Service.
+                </md-checkbox>
+              </td>
+            </tr>
+            <tr class="forgot"><td><a href="#">Forgot password?</a></td></tr>
+            <tr class="login-button"><td><button md-button (click)="signUp(log.value, pass.value, passconfirm.value)">Login</button></td></tr>
+            <tr class="footer"><td>Already got an account?<button md-button (click)="loginPopup(true)">Login here</button></td></tr>
+          </table>
+        </form>
+      </div>
+    </md-card-content>
+  </md-card>
+</div>

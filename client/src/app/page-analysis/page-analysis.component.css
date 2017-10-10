@@ -1,0 +1,252 @@
+/*<<<<<<<<<<Container Block>>>>>>>>>>>>>>>*/
+/*.header{
+  background-color: #dadce2;
+}*/
+
+.container-block {
+  display: flex;
+  justify-content: center;
+  flex-flow:row wrap;
+}
+
+
+.container  .container-body {
+  max-width: 1010px;
+  background-color: #f4f7f9;
+  padding: 0px 10px 15px 10px;
+}
+
+.container  .container-header,
+.container  .container-body,
+.container  .container-footer {
+  width: 100%;
+}
+
+.container  .container-header {
+  display: flex ;
+  justify-content: flex-end;
+  line-height: 56px;
+  height: 56px;
+  padding: 0 50px;
+}
+
+.container  .container-header h3 {
+  margin-left: 20px;
+}
+
+
+.container  .container-header .rightside ul li{
+  float: left;
+  height:100%;
+}
+
+.container  .container-header .rightside ul li a{
+  text-transform: none;
+  text-decoration: none;
+  width: 66px;
+  height: 30px;
+  font-size: 12px;
+  display: block;
+  background-color: #dadce2;
+  line-height: 30px;
+  padding-left: 20px;
+  text-align: center;
+  border-radius: 3px;
+  margin-left: 10px;
+  color: #646464;
+  margin-top: 15px;
+  background-image: url(../../assets/main/sprite.png);
+}
+
+.container  .container-header .rightside ul li a.update {
+  background-position: -12px -768px;
+}
+
+.container  .container-header .rightside ul li a.export {
+  background-position: -12px -812px;
+}
+
+.container-body .analyze-info {
+  display: flex;
+  justify-content: space-between;
+  margin:25px 0;
+  background-color: #fff;
+  padding: 7px 10px
+}
+
+.container-body .analyze-info .image-block {
+  display: flex;
+  justify-content: center;
+  margin-right: 15px;
+}
+
+.container-body .analyze-info .image-block .image {
+  width: 460px;
+  height: 262px;
+  overflow: hidden;
+}
+
+.container-body .analyze-info .image-block .image img{
+  max-width: 100%;
+}
+
+.container-body .analyze-info .info-block{
+  display: inline-block;
+  width: 506px;
+}
+
+.container-body .analyze-info .info-block .page-info {
+  width: 100%;
+  text-align: left;
+}
+
+.container-body .analyze-info .info-block .page-info h3 {
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+
+.container-body .analyze-info .info-block .page-info p {
+  font-size: 12px;
+  color: #8d8d8d;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.container-body .analyze-info .info-block .page-info p i {
+  float: left;
+  margin-top: 2px;
+  width: 20px;
+  height: 20px;
+  display: block;
+  background-image: url(../../assets/main/sprite.png);
+  background-position: -24px -777px;
+  margin-right: 5px;
+}
+
+.container-body .analyze-info .info-block .scores {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.container-body .analyze-info .info-block .scores .col {
+  width: 67px;
+  height: 67px;
+  border-radius: 100%;
+  margin: 0 10px 20px 0;
+  position: relative;
+  color: #fff;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-body .analyze-info .info-block .scores .col1{
+  width: 120px;
+  height: 120px;
+  border-radius: 100%;
+  margin: 0 15px 20px 0;
+  position: relative;
+  background-color: #6cc422;
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
+}
+
+.container-body .analyze-info .info-block .scores .col:before {
+  content: "";
+  background-image: url(../../assets/main/sprite.png);
+  width: 5px;
+  height: 19px;
+  display: block;
+  position: absolute;
+  background-position: -26px -1244px;
+  top: 73px;
+}
+
+.container-body .analyze-info .info-block .scores .col1:before {
+  display: none;
+}
+
+.container-body .analyze-info .info-block .scores .col p {
+  height: 27px;
+  line-height: 27px;
+  padding: 0 2px;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+}
+
+.container-body .analyze-info .info-block .scores .col4 {
+  background-color: #7ac243;
+}
+
+.container-body .analyze-info .info-block .scores .col3 {
+  background-color: #f48c37;
+}
+
+.container-body .analyze-info .info-block .scores .col2 {
+  background-color: #f43737;
+}
+
+.container-body .analyze-info .info-block .scores .col span {
+
+  position: absolute;
+  top: 93px;
+  left:0;
+  color: #7a7a7a;
+  font-weight:normal;
+  font-size: 16px;
+  width: 100%;
+  text-align: center;
+}
+
+.container-body .analyze-info .info-block .scores .col1 span {
+  top:100%;
+}
+
+.container-body .analyze-info .info-block .scores .col1 p {
+  font-size: 34px;
+  border: none;
+}
+
+@media screen and (max-width: 1125px){
+  .container-body .analyze-info {
+    flex-flow:row wrap;
+    justify-content: center;
+  }
+}
+
+/*<<<<<<<<<<<<<<<Tabs Block>>>>>>>>>>>>>>>>>>*/
+
+
+/*<<<<<<<<<<Tab Summary>>>>>>>>>>*/
+
+/*<<<<<<<<<<Tab Seo>>>>>>>>>>*/
+
+
+/*<<<<<<<<<<Tab content>>>>>>>>>>*/
+
+
+/*<<<<<<<<<<Tab Design>>>>>>>>>>*/
+
+
+
+/*<<<<<<<<<<Tab Performance>>>>>>>>>>*/
+@media screen and (max-width: 1000px) {
+  .tabs .summary .tab-body {
+    flex-flow: row wrap;
+  }
+  .tabs .content md-card md-card-content .card-content {
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+  .tabs .md-padding md-card .card-list li {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+}

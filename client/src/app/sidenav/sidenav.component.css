@@ -1,0 +1,275 @@
+/*<<<<<<<<<<<<< Navigation Block >>>>>>>>>>>>>*/
+/**/
+#sidenav {
+  display: none;
+}
+
+.sidenav-bar {
+  display: none;
+}
+
+.sidenav {
+  position: inherit;
+  height: 100%;
+  float: left;
+  z-index: 2;
+  top:-64px;
+  transform: none;
+}
+
+.sidenav md-sidenav {
+  width: 160px;
+  position: fixed;
+  z-index: 9;
+}
+
+.sidenavtoggle {
+  position: fixed;
+  top: 17px;
+  z-index: 9;
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  box-shadow: none;
+  min-width: auto;
+  background-color: transparent !important;
+  background-image: url(../../assets/main/sprite.png);
+  background-position: -7px -168px;
+  left: 24px;
+}
+
+.sidenavclose:after,
+.sidenavtoggle:after{
+  display: none;
+}
+
+
+.dashboard-nav {
+  width: 160px;
+  height: 100%;
+  top:0;
+  left:0;
+  background-color: #41687f;
+  position: fixed;
+}
+
+.dashboard-nav .navigation {
+  width: 100%;
+  position: relative;
+}
+
+.dashboard-nav .navigation ul {
+
+}
+
+.dashboard-nav .navigation ul li{
+  min-height: 60px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dashboard-nav .navigation ul li a {
+  display: flex;
+  width: 100%;
+  height: 78px;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #7692a2;
+  font-size: 14px;
+  position: relative;
+}
+
+.dashboard-nav .navigation ul li a.active:before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 13px;
+  height: 28px;
+  background-image: url(../../assets/main/sprite.png);
+  background-position: -103px -18px;
+  align-self: flex-end;
+  right: -3px;
+}
+
+.dashboard-nav .navigation ul li a.active {
+  background-color: #3b637b;
+  color: #fff;
+}
+
+.dashboard-nav .navigation ul li a i {
+  margin-bottom: 5px;
+}
+
+.dashboard-nav .navigation ul li a i.dashbord-icon {
+  background-image: url(../../assets/main/sprite.png);
+  display: block;
+  width: 17px;
+  height: 16px;
+  background-position: -278px -66px;
+}
+
+.dashboard-nav .navigation ul li a.active i.dashbord-icon {
+  background-position: -138px -21px;
+}
+
+.dashboard-nav .navigation ul li a i.profile-icon {
+  background-image: url(../../assets/main/sprite.png);
+  display: block;
+  width: 14px;
+  height: 14px;
+  background-position: -108px -157px;
+}
+
+.dashboard-nav .navigation ul li a.active i.profile-icon {
+  background-position: -188px -25px;
+}
+
+.dashboard-nav .navigation ul li a i.checker-icon {
+  background-image: url(../../assets/main/sprite.png);
+  display: block;
+  width: 19px;
+  height: 8px;
+  background-position: -278px -167px;
+}
+
+.dashboard-nav .navigation ul li a.active i.checker-icon {
+  background-position: -364px -31px;
+}
+
+.dashboard-nav .navigation ul li a i.site-vs-site {
+  background-image: url(../../assets/main/sprite.png);
+  display: block;
+  width: 16px;
+  height: 17px;
+  background-position: -334px -164px;
+}
+
+.dashboard-nav .navigation ul li a.active i.site-vs-site {
+  background-position: -433px -29px;
+}
+
+.dashboard-nav .navigation ul li a i.analyze-icon {
+  background-image: url(../../assets/main/sprite.png);
+  display: block;
+  width: 16px;
+  height: 13px;
+  background-position: -226px -158px;
+}
+
+.dashboard-nav .navigation ul li a.active i.analyze-icon {
+  background-position: -305px -27px;
+}
+
+.dashboard-nav .navigation ul li a i.pricing-icon {
+  background-image: url(../../assets/main/sprite.png);
+  display: block;
+  width: 12px;
+  height: 18px;
+  background-position: -389px -169px;
+}
+
+.dashboard-nav .navigation ul li a.active i.pricing-icon {
+  background-position: -501px -29px;
+}
+
+.dashboard-nav .navigation ul li a i.settings-icon {
+  background-image: url(../../assets/main/sprite.png);
+  display: block;
+  width: 18px;
+  height: 18px;
+  background-position: -453px -172px;
+}
+
+.dashboard-nav .navigation ul li a.active i.settings-icon {
+  background-position: -560px -31px;
+}
+
+.dashboard-nav .navigation ul li.logo {
+  height: 64px;
+  background-color: #2c5871;
+}
+
+.dashboard-nav .navigation ul li.author-info {
+  padding: 15px 0;
+}
+
+.dashboard-nav .navigation ul li.author-info h3 {
+  color: #fff;
+  font-size: 14px;
+}
+
+.dashboard-nav .navigation ul li.author-info p {
+  color: #6cc422;
+  font-size: 12px;
+}
+
+.dashboard-nav .navigation ul li.author-info .image-block {
+  width: 62px;
+  height: 62px;
+  overflow: hidden;
+  border-radius: 100%;
+  display: block;
+  position: relative;
+}
+
+.dashboard-nav .navigation ul li.author-info .image-block img {
+  max-width: 100%;
+  height: 100%;
+}
+
+
+@media screen and (max-width: 870px) {
+  .sidenav {
+    float: none;
+    position: relative;
+    height: auto;
+    top:64px;
+    animation: Sidenav 0.5s;
+    display: none;
+  }
+
+  @keyframes Sidenav {
+    from{position: fixed;  top:-50%;}
+    to{position: relative;  top:64px;}
+  }
+
+  .sidenav md-sidenav {
+    max-width: 100%;
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  .dashboard-nav {
+    width: 100%;
+    position: relative;
+  }
+
+  .dashboard-nav .navigation {
+    top:0;
+  }
+
+
+  .sidenav-bar {
+    position: fixed;
+    padding: 0 10px;
+    height: 30px;
+    border-radius: 3px;
+    color: #fff;
+    background-color: #009688;
+    z-index: 6;
+    cursor: pointer;
+    text-align: center;
+    line-height: 30px;
+    top:14px;
+    left: 14px;
+    display: block;
+  }
+  #sidenav:checked ~ .sidenav{
+    display: block;
+  }
+}

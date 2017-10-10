@@ -1,0 +1,156 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+footer {
+  width: 100%;
+	background-color: #eaebf0;
+    padding: 22px 76px 20px 104px;
+    display: flex;
+    justify-content: space-between;
+	a {
+		text-decoration: none;
+	}
+	.right-side {
+		display: inline-block;
+		text-align: center;
+	}
+	.links {
+		display: inline-block;
+		span {
+			font-size: 14px;
+			color: #333333;
+			font-weight: 600;
+		}
+	}
+	.uls {
+		display: flex;
+		ul:first-child {
+			margin-right: 32px;
+		}
+		ul {
+			font-size: 14px;
+			//font-family: "Roboto Light";
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			li {
+				padding: 22px 0px 0px 0px;
+				a {
+					color: #bebebf;
+					transition-duration: 0.2s;
+					&:hover {
+						color: #6cc422;
+					}
+				}
+			}
+		}
+	}
+	.icons {
+		display: flex;
+		justify-content: space-between;
+		width: 154px;
+		margin-left: calc(50% - 77px);
+		margin-bottom: 17px;
+		a {
+			i {
+				width: 28px;
+				height: 28px;
+				border-radius: 50%;
+				line-height: 28px;
+				text-align: center;
+				display: block;
+				border: 2px solid;
+				&:hover {
+					background-color: #FFF;
+				}
+			}
+		}
+	}
+	.fa-facebook {
+		color: #4b76bd;
+		border-color: #4b76bd;
+	}
+	.fa-linkedin {
+		color: #0a85c9;
+		border-color: #0a85c9;
+	}
+	.fa-twitter {
+		color: #00c6ff;
+		border-color: #00c6ff;
+	}
+	.fa-google-plus {
+		color: #fb5245;
+		border-color: #fb5245;
+	}
+	.all-right-reserved {
+		margin-top: 22px;
+	}
+
+}
+@media screen and (min-width: 769px) {
+  .displayNone-mobile {
+    display: none;
+  }
+}
+@media screen and (max-width: 1014px) and (min-width: 768px) {
+	footer {
+		padding: 22px;
+	}
+}
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  .displayNone {
+    display: none;
+  }
+  footer {
+		padding: 10px;
+		.uls {
+			ul:first-child {
+				margin-right: 9px;
+			}
+			ul {
+        li {
+          padding: 3px 0px 0px 0px;
+          font-family: "Open sans";
+          a {
+            font-size: 10px;
+          }
+        }
+      }
+		}
+		.links {
+			span {
+				font-size: 10px;
+			}
+		}
+		.right-side {
+			text-align: right;
+			position: relative;
+			.all-right-reserved {
+				font-size: 7px;
+				text-align: right;
+				margin-top: 0px;
+			}
+			.displayNone-mobile {
+				display: inline;
+			}
+			.icons {
+				width: 100px;
+				right: 0px;
+				position: relative;
+				margin-top: 17px;
+				margin-bottom: 11px;
+        margin-left: calc(100% - 100px);
+				a {
+					i {
+						width: 19px;
+						height: 19px;
+						line-height: 19px;
+						font-size: 11px;
+						border-width: 1px;
+					}
+				}
+			}
+		}
+	}
+}

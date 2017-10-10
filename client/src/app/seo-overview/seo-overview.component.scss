@@ -1,0 +1,112 @@
+md-card {
+  background: transparent;
+}
+#seo_overview {
+  background-color: #FFF !important;
+}
+.tabs md-card md-card-content .card-list li .right-side table.links {
+  td {
+    background-color: #eceff7;
+  }
+}
+.allLinks {
+  width: calc(100% - 23px);
+  tr {
+    display: flex;
+    margin-bottom: 12px;
+    line-height: 25px;
+    background-color: #FFF;
+    td{
+      width: 100%;
+      background-color: #eceff7;
+      padding: 15px;
+      box-sizing: border-box;
+      word-wrap: break-word;
+    }
+  }
+}
+.tabs md-card md-card-content .card-list li .right-side p {
+  width: 100%;
+}
+.link-text {
+  padding-left: 12px;
+  padding-top: 15px;
+  color: #717171;
+  font-size: 20px;
+  font-family: "Myriad Pro";
+  margin-bottom: 50px;
+}
+.link-text a {
+  text-decoration: none;
+  color: #6cb0fd;
+  font-size: 16px;
+  font-family: "Myriad Pro";
+}
+.link-text p {
+  margin-top: 20px;
+}
+.previous-next {
+  position: absolute;
+  right: 0px;
+  bottom: 50px;
+}
+.previous-next div {
+  background-color: transparent;
+  border: 1px solid #f48c37;
+  padding: 5px 8px;
+  color: #f48c37;
+  border-radius: 2px;
+  font-size: 16px;
+  display: inline-block;
+  font-family: "Nunito Regular";
+  outline: none;
+  cursor: pointer
+}
+.previous-next p {
+  color: #FFF;
+  border-radius: 2px;
+  font-size: 20px;
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  background-color: #f48c37;
+  line-height: 38px;
+  font-family: "Nunito Regular";
+}
+.previous {
+  position: relative;
+  left: 5px;
+}
+.next {
+  position: relative;
+  right: 5px;
+}
+.pageNumber {
+  margin-right: 0px !important;
+}
+.pageination-control-block {
+  position: relative;
+  .previous-next {
+    bottom: -50px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .previous-next {
+    position: static;
+  }
+}
+@media screen and (max-width: 970px) {
+  .pageCount {
+    display: block !important;
+  }
+}
+@media screen and (max-width: 670px) {
+  .previous-next {
+    position: static;
+  }
+  .link-text {
+    margin-bottom: 20px;
+    padding-left: 0px;
+  }
+}

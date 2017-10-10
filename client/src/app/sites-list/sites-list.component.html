@@ -1,0 +1,104 @@
+<form id="createPageanalysis" name="createPageanalysis" method="POST" action="" data-ajax="/en/ajax/pageanalysis/createAjax">
+<div class="container">
+  <div class="container-block">
+    <div class="container-header">
+      <h3>Page Analysis</h3>
+      <div>
+        <a routerLink="/dashboard">Dashboard</a> / <a routerLink="/page-analysis">Page Analysis</a>
+      </div>
+    </div>
+    <div class="panel panel-default" style="min-height:160px;">
+      <div class="panel-heading">
+        <h3 class="panel-title">New page analysis</h3>
+      </div>
+      <div class="panel-body">
+          <input name="token" type="hidden" value="2e9541c81ab9a695a01a720c2d021d4f86158bb1">
+          <div id="loadHere"></div>
+          <div class="row">
+            <div class="col-sm-9">
+              <div class="form-infield">
+                <label>Page Url</label>
+                <md-input type="text" class="form-control input-lg" id="url" name="url" value="" placeholder="https://" #url> </md-input>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="divide10"></div>
+              <button type="submit" id="submitPageanalysis" class="btn btn-primary btn-wide" (click)="check(url.value);">Analyze</button>
+            </div>
+          </div>
+          <div id="credits_alert" class="text-success text-right"></div>
+      </div>
+    </div>
+    <div class="no-data">
+      <div class="text">
+        No Data
+      </div>
+    </div>
+    <div class="data-exist panel panel-default info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Analyses history</h3>
+      </div>
+      <div class="panel-table" style="overflow: hidden; position: relative;">
+        <div id="list_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="dataTables_length" id="list_length">
+                <label>Show entries</label>
+                <select name="list_length" (change)="onChange($event.target.value)" aria-controls="list" class="form-control input-sm">
+                  <option value="10">10</option>
+                  <option value="25">25</option>
+                  <option value="50">50</option>
+                  <option value="100">100</option>
+                </select>
+              </div>
+            </div>
+              <div class="col-sm-6">
+                <div id="list_filter" class="dataTables_filter">
+                  <md-input  type="search" (keypress) = "keyDownFunction($event)" class="form-control input-sm" placeholder="Search" aria-controls="list"></md-input>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <app-loading [isRunning]="isMasked"></app-loading>
+              <table class="table nicetable table-striped dataTable no-footer dtr-inline" id="list" style="width: 100%;"
+                     role="grid" aria-describedby="list_info">
+                <thead>
+                <tr role="row">
+                  <th data-priority="1" class="sorting" tabindex="0" aria-controls="list" rowspan="1" colspan="1"
+                      style="width: 1115px;" aria-label="Url: activate to sort column ascending">URL
+                  </th>
+                  <th data-priority="1" class="sorting_desc" tabindex="0" aria-controls="list" rowspan="1" colspan="1"
+                      style="width: 117px;" aria-sort="descending" aria-label="Date: activate to sort column ascending">Date
+                  </th>
+                  <th data-priority="2" class="sorting" tabindex="0" aria-controls="list" rowspan="1" colspan="1"
+                      style="width: 33px;" aria-label="Average: activate to sort column ascending">Average
+                  </th>
+                  <th data-priority="2" class="sorting" tabindex="0" aria-controls="list" rowspan="1" colspan="1"
+                      style="width: 138px;" aria-label=": activate to sort column ascending"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr role="row" class="odd" *ngFor="let site of sitesList">
+                  <td><a [routerLink]="['/page-analysis', site.id]">{{site.domain}}</a></td>
+                  <td data-order="1476398119" tabindex="0" class="sorting_1">
+                    <time datetime="2016-10-13 22:35:19 GMT+0" pubdate="pubdate" itemprop="dateCreated">{{site.date}}
+                    </time>
+                  </td>
+                  <td data-order="72"><span class="score bg-warning">{{site.score}}</span></td>
+                  <td class="text-right">
+                    <a class="btn btn-success btn-sm" [routerLink]="['/page-analysis', site.id]">View report</a>
+                    <a class="btn btn-text-danger btn-sm delete" data-id="997788"  href="#" (click) = "delete($event, site.id)">Delete</a></td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        <app-pagination [limit]="limit" [sitesCount]="sitesCount" (pageChange)="onNavigate($event)"></app-pagination>
+        </div>
+      </div>
+    <app-footer></app-footer>
+    </div>
+  </div>
+</form>

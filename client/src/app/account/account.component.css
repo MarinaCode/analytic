@@ -1,0 +1,339 @@
+.container-block {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+.container-block .register {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 15px;
+  align-items: center;
+  background-color: #f5f7f9;
+}
+.container-block .container-header {
+  margin-bottom: 0;
+}
+
+.container-block app-footer {
+  margin-top: 0;
+}
+
+.container-block .register .image-block {
+  width: 114px;
+  height: 114px;
+  border-radius: 100%;
+  overflow: hidden;
+  position: relative;
+  background-color: #e0e0e0;
+  border: 1px solid transparent;
+  background-image: url(../../assets/main/users.png);
+  background-size: cover;
+}
+
+.container-block .register .image-block.error {
+  border-color: #e23737;
+}
+
+.container-block .register .image-block img {
+  width: 100%;
+  vertical-align: middle;
+  max-width: 100%;
+  height: 100%;
+}
+
+.container-block .register .image-block .opacity {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 100%;
+  opacity: 0;
+}
+
+.container-block .register .image-block .opacity .photo-icon{
+  width: 34px;
+  height: 28px;
+  display: block;
+  background-image: url(../../assets/main/sprite.png);
+  background-position: -17px -492px;
+  position: absolute;
+  z-index: 0;
+  cursor: pointer;
+}
+
+.container-block .register  .image-block .opacity .form-control {
+  width: 34px;
+  height: 28px;
+  display: block;
+  position: absolute;
+  opacity: 0;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.container-block .register  .image-block:hover .opacity {
+  opacity: 1;
+}
+
+.container-block .register .account-block {
+  width: 100%;
+  min-height: 500px;
+}
+
+.container-block .register .info-block .person-info h2{
+  color: #404040;
+  margin-bottom: 8px;
+}
+
+.container-block .register .info-block .person-info p{
+  color: #666;
+}
+
+.container-block .register .item {
+  width: 100%;
+  display: flex;
+  margin-bottom: 22px;
+  position: relative;
+  padding:10px 0;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.container-block .register .birth,
+.container-block .register .gender {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba(128, 128, 128, 0.51);
+}
+
+.container-block .register .save-block {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.container-block .register .save-block .save {
+  min-width: 124px;
+  height: 35px;
+  text-decoration: none;
+  background-color: #f58c37;
+  color: #fff;
+  line-height: 35px;
+  text-align: center;
+  border-radius: 3px;
+  font-size: 16px;
+  border:none;
+  margin-bottom: 20px;
+  outline: none;
+  box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.2);
+  transition-duration: 0.2s;
+}
+.container-block .register .save-block .save:active {
+  box-shadow: none;
+}
+.container-block .register .item .input-block{
+  width: calc(80% - 8px);
+  max-width: 529px;
+}
+
+.container-block .register .item span {
+  font-size: 10px;
+  margin-top: 5px;
+  color: rgba(128, 128, 128, 0.51);
+  position: absolute;
+  bottom: -26px;
+  margin-bottom: 10px;
+}
+
+.container-block .register .item md-radio-group {
+  width: calc(80% - 8px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container-block .register .item md-radio-group md-radio-button {
+  margin: 0;
+}
+
+.container-block .register .item span.indiv:after {
+  content: "*";
+  color: #e23737;
+}
+
+.container-block .register .item .selectbox {
+  width: 100%;
+  position: relative;
+}
+
+.container-block .register .item i {
+  position: absolute;
+  bottom: -18px;
+  font-style: normal;
+  font-size: 12px;
+  left: 26%;
+}
+
+
+.container-block .register .change label {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.container-block .register .change label span {
+  font-weight: bold;
+  width: auto;
+}
+
+.container-block .register .change {
+  flex-flow:row wrap;
+  margin-top: 20px;
+}
+
+.container-block .register .change .hidden {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.container-block .register .change .hidden .hidden-block {
+  width: 100%;
+}
+
+.container-block .register .change .hidden .hidden-block label {
+  position: relative;
+  margin-top: 35px;
+}
+
+.container-block .register .change .hidden .hidden-block label i {
+  position: absolute;
+  bottom: -13px;
+  font-style: normal;
+  font-size: 10px;
+  color: #b5322b;
+  left:0;
+  display: none;
+}
+
+.container-block .register .change .hidden .hidden-block label md-input {
+  width: 100%;
+}
+
+
+.container-block .register .change .hidden .hidden-block p {
+  font-style: normal;
+  font-size: 12px;
+  position: absolute;
+  top: 37px;
+  padding-left: 10px;
+}
+
+.container-block .register .item select {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.17);
+  height: 35px;
+  resize: none;
+  outline: none;
+  -webkit-appearance: none;
+  padding: 0 10px;
+  cursor: pointer;
+  color: rgba(128, 128, 128, 0.51);
+  padding-left: 0;
+  background-color: #f5f7f9;
+}
+
+.container-block .register .item .selectboxing {
+  width: calc(80% - 8px);
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-block .register .item .selectboxing select {
+  width: 93px;
+  border:none;
+  border-bottom: 1px solid #d9d9d9;
+  height: 35px;
+  resize: none;
+  outline: none;
+  -webkit-appearance: none;
+  padding: 0 10px;
+  cursor: pointer;
+  margin-right: 10%;
+}
+
+.container-block .register .item .selectboxing .box {
+  position: relative;
+  margin-right: 5px;
+}
+
+.container-block .register .item .arrow {
+  position: absolute;
+  display: block;
+  width: 14px;
+  height: 18px;
+  right: 10px;
+  background-image: url(../../assets/main/sprite.png);
+  background-position: -27px -535px;
+  top: 8px;
+}
+
+.container-block .register .item input {
+  border:1px solid #d9d9d9;
+  height:33px;
+  padding: 0 10px;
+  width: calc(80% - 30px);
+  max-width: 529px;
+  outline: none;
+}
+
+.container-block .register .item md-input {
+  width: 100%;
+}
+
+.container-block .register .item .input-block md-input {
+  width: 93px;
+  margin-right: 30px;
+}
+
+@media screen and (max-width: 700px) {
+  .container-block .register {
+    margin-left: 0;
+  }
+
+  .container-block .register .item label {
+    margin-bottom: 10px;
+    flex-flow: row wrap;
+  }
+
+  .container-block .register .item .input-block md-input {
+    margin-right: 3%;
+    width: 28%;
+  }
+
+  .container-block .register .item {
+    flex-flow: row wrap;
+  }
+
+  .container-block .register .info-block {
+    justify-content: flex-start;
+    flex-flow: row wrap;
+  }
+
+  .container-block .register .info-block .person-info {
+    margin-top: 10px;
+  }
+
+}

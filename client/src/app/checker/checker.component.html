@@ -1,0 +1,163 @@
+<app-error-message></app-error-message>
+<div class="container">
+  <div class="container-block">
+    <div class="container-header">
+      <h3> Plagiarism Checker </h3>
+      <div>
+        <a routerLink="/dashboard">Dashboard</a> / <a routerLink="/checker"> Plagiarism Checker </a>
+      </div>
+    </div>
+    <div class="container-item">
+      <h2>{{ 'MAD_CHECK_FOR_UNIQUENESS' | translate }}</h2>
+    </div>
+    <div class="container-sidenav">
+      <div class="text-info free-status">
+        <div class="pro status">
+          <md-card class="activity">
+            <md-card-title>
+              <span class="title">Free</span>
+              <span class="user-icon"></span>
+            </md-card-title>
+            <md-card-content>
+              <p>User activity plan</p>
+              <i>User Statues</i>
+            </md-card-content>
+          </md-card>
+          <button md-raised-button>Upgrate</button>
+        </div>
+        <p>
+          <span class="full-text">{{ 'MAD_TEXT_IS_VERY_LONG' | translate }} <i></i>
+            <span class="hidden-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At necessitatibus nostrum omnis quis quod? A accusamus, dae soluta unde, voluptatum?</span>
+          </span>
+          <span class="local-text" #localText [ngClass]="[textArea.value.length > 10000 ? 'errorText' : '']">{{ 'MAD_TEXT_LENGTH' | translate }}: {{textArea.value.length}} ({{ 'MAD_WITHOUT_SPACES' | translate }}: {{textArea.value | removedspaceslength}})</span>
+        </p>
+        <textarea ref-textarea #textArea [(ngModel)]="str" rows="10" [ngClass]="[textArea.value.length > 10000 ? 'error' : '']" ></textarea>
+        <div #editText class="editText"></div>
+      </div>
+      <button #checkBtn (click)="check(textarea.value)" class="check" md-raised-button>{{ 'MAD_CHECK' | translate }}</button>
+      <div class="status-container">
+        <div #statusBasic class="status-basic">
+          <div class="user-status">
+            <h3>User Status</h3>
+            <img src="../../assets/main/user_status.png">
+          </div>
+          <div>
+            <p class="chances">10 chances</p>
+          </div>
+          <div class="status">
+            <h2>Basic</h2>
+            <p>1000&nbsp;/&nbsp;Symbols</p>
+          </div>
+        </div>
+        <div #statusStandart class="status-standart">
+          <div class="user-status">
+            <h3>User Status</h3>
+            <img src="../../assets/main/user_status.png">
+          </div>
+          <div>
+            <p class="chances">10 chances</p>
+          </div>
+          <div class="status">
+            <h2>Standart</h2>
+            <p>1000&nbsp;/&nbsp;Symbols</p>
+          </div>
+        </div>
+        <div #statusPremium class="status-premium">
+          <div class="user-status">
+            <h3>User Status</h3>
+            <img src="../../assets/main/user_status.png">
+          </div>
+          <div>
+            <p class="chances">10 chances</p>
+          </div>
+          <div class="status">
+            <h2>Premium</h2>
+            <p>1000&nbsp;/&nbsp;Symbols</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="loading-block">
+        <ul>
+          <li #analyzing class="analyzing">
+            <div class="loading">
+              <span class="icon analyz"></span>
+              <md-progress-circle color="accent" mode="indeterminate"></md-progress-circle>
+            </div>
+            <div class="text">
+              <p>{{ 'MAD_ANALYZING_DATA' | translate }}</p>
+            </div>
+          </li>
+          <li #searching class="searching">
+            <div class="loading">
+              <span class="icon search"></span>
+              <md-progress-circle mode="indeterminate"></md-progress-circle>
+            </div>
+            <div class="text">
+              <p>{{ 'MAD_SEARCHING_SUBSTANTIAL_SIMILARITY' | translate }}</p>
+            </div>
+          </li>
+          <li #determine class="determine">
+            <div class="loading">
+              <span class="icon deter"></span>
+              <md-progress-circle color="warn" mode="indeterminate"></md-progress-circle>
+            </div>
+            <div class="text">
+              <p>{{ 'MAD_DETERMINE' | translate }}</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div #checkingBlock class="checking-block">
+        <div class="text-uniqueness" *ngIf="plagiatAllPercent !='' ">
+          <p>TEXT UNIQUENESS <i>{{plagiatAllPercent}}%</i></p>
+          <div class="line">
+            <div class="fill" #fillPercent></div>
+          </div>
+        </div>
+        <div class="checking-result">
+          <!--<a href="javascript:;" class="show">Show all matches</a>-->
+          <table >
+            <tr>
+              <td>{{ 'MAD_LINK' | translate }}</td>
+              <td>{{ 'MAD_ORIGINAL_MATCHES' | translate }}</td>
+              <td>{{ 'MAD_MATCHES' | translate }}</td>
+            </tr>
+            <tr *ngFor="let data of plagiatData">
+              <td width="30%"><a target="_blank" href="{{data.href}}">{{data.href}}</a></td>
+              <td><span>{{data.percentPlagiat}}</span></td>
+              <td><a href="javascript:;" (click)="showChanges($event, data.plagiatText)">View</a></td>
+            </tr>
+          </table>
+          <div class="buttons-block">
+            <button #editBtn class="edit" (click)="edit()">{{ 'MAD_EDIT_TEXT' | translate }}t</button>
+            <button #addBtn class="add" (click)="add()">{{ 'MAD_ADD_TEXT' | translate }}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--<div class="container-footer">-->
+      <!--<h4>{{ 'MAD_ACCESS' | translate }}, <a href="">login</a> to your account.</h4>-->
+      <!--<span class="hr"></span>-->
+      <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda at, beatae consectetur cum cumque, deleniti dolore ex expedita maiores molestias, temporibus vitae. Aliquam dolorem molestias nesciunt qui rerum voluptatum.</p>-->
+    <!--</div>-->
+    <app-footer></app-footer>
+    <!--<footer>-->
+      <!--<div class="text-block">-->
+        <!--<h3></h3>-->
+        <!--<p>{{ 'MAD_TERMS_AND_POLICY' | translate }} © 2016 Madcrocs</p>-->
+      <!--</div>-->
+      <!--<div class="share-block">-->
+        <!--<ul>-->
+          <!--<li>{{ 'MAD_FOLLOW' | translate }}:</li>-->
+          <!--<li><a href="" class="facebook"></a></li>-->
+          <!--<li><a href="" class="twitter"></a></li>-->
+          <!--<li><a href="" class="google"></a></li>-->
+          <!--<li><a href="" class="linkedin"></a></li>-->
+        <!--</ul>-->
+      <!--</div>-->
+    <!--</footer>-->
+  </div>
+</div>
+

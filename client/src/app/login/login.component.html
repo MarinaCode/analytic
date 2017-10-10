@@ -1,0 +1,131 @@
+<!--<div class="popup-opacity" ></div>-->
+<!--<app-reset-pass #reset></app-reset-pass>-->
+<div class="popup" *ngIf="loginVisiblity">
+    <md-card class="login-popup">
+      <md-card-title>Login to Madcrocs  </md-card-title>
+      <div (click)="closeLogin()" class="close-button"></div>
+      <md-card-content>
+        <div layout="column" class="md-inline-form">
+          <form>
+            <table cellspacing="0">
+              <tr class="share-block">
+                <td>
+                  <button md-button class="facebook" (click)="loginFacebook()">Facebook</button>
+                  <button md-button class="google" (click)="loginGoogle()">Google+</button>
+                  <span>or</span>
+                </td>
+              </tr>
+              <tr class="login">
+                <td>
+                  <md-input #email placeholder="Email" style="width:100%"></md-input>
+                </td>
+              </tr>
+              <tr class="password"><td><md-input #pass placeholder="Password" style="width: 100%" type="password"></md-input></td></tr>
+              <tr id="loginErrorTr"><td><span id="loginError" #loginError>Email or password is incorrect</span></td></tr>
+              <tr class="forgot"><td><a href="javascript:;" (click)="resetPassword()">Forgot password?</a></td></tr>
+              <tr class="login-button"><td><button md-button (click)="login(email.value, pass.value)">Login</button></td></tr>
+              <tr class="footer"><td>Don't you have an account <a href="javascript:;" (click)="signUpPopup()" class="login-signup">Sign up now!</a></td></tr>
+            </table>
+          </form>
+        </div>
+      </md-card-content>
+    </md-card>
+</div>
+
+<div class="popup" *ngIf="signUpVisiblity" id="signupPopupVisibility">
+  <md-card class="login-popup" #signupPopup>
+    <md-card-title>Register to Madcrocs </md-card-title>
+    <div (click)="closeSignup()" class="close-button"></div>
+    <md-card-content>
+      <div layout="column" class="md-inline-form">
+        <form>
+          <table cellspacing="0">
+            <tr class="share-block">
+              <td>
+                <button md-button class="facebook" (click)="loginFacebook()">Facebook</button>
+                <button md-button class="google" (click)="loginGoogle()">Google+</button>
+                <span>or</span>
+              </td>
+            </tr>
+            <tr class="login">
+              <td>
+                <md-input  #username placeholder="Username" style="width:100%"></md-input>
+                <span class="symbol" #usernameLength>Max 10 symbol</span>
+              </td>
+            </tr>
+            <tr class="email">
+              <td>
+                <md-input #signupEmail placeholder="Email" style="width:100%"></md-input>
+                <span class="emailErr" #emailErr>Email is incorrect</span>
+              </td>
+            </tr>
+            <tr class="password">
+              <td>
+                <md-input #pass placeholder="Password" style="width: 100%"  type="password"></md-input>
+                <span #passLength class="symbol">Min 8 symbol</span>
+              </td>
+            </tr>
+            <tr class="password confirm">
+              <td>
+                <md-input #passconfirm placeholder="Confirm Password" style="width: 100% " type="password"></md-input>
+                <span class="symbol" #confirmPassErr>Entered passwords don't match</span>
+                </td>
+            </tr>
+            <tr class="accept">
+              <td>
+                <md-checkbox  aria-label="Checkbox 1" #check>
+                  I accept Terms of Service.
+                </md-checkbox>
+              </td>
+            </tr>
+            <tr class="login-button"><td><button md-button #signupBtn (click)="signUp(username.value, signupEmail.value, pass.value, passconfirm.value)"><span *ngIf="userExist">This user is exists</span><span *ngIf="signup">Sign Up</span><span id="processingMessage" *ngIf="processing">Processing...</span></button></td></tr>
+            <tr class="footer"><td>Already got an account? <a href="javascript:;" (click)="loginPopup(true)" class="login-signup">Register Here</a></td></tr>
+          </table>
+        </form>
+      </div>
+    </md-card-content>
+  </md-card>
+</div>
+
+<div class="popup" id="checkoutEmailPopup" *ngIf="checkoutEmailPopup">
+  <div id="checkoutEmail">
+    <div class="close-button" (click)="hideCheckoutEmailPopup($event)"></div>
+    <span>Check out your email for confirmation.</span>
+  </div>
+</div>
+
+<div class="popup" id="checkoutEmailForResetPassPopup" *ngIf="checkoutEmailForResetPassPopup">
+  <div id="checkoutEmailForResetPass">
+    <div class="close-button" (click)="hideCheckoutEmailPopup($event)"></div>
+    <span>Check out your email for reset password.</span>
+  </div>
+</div>
+
+<div id="ressetPopup" class="popup" *ngIf="resetVisibility">
+  <table cellspacing="0" cellpadding="0" class="login-popup reset-popup">
+    <tbody class="logo-tbody">
+    <tr>
+      <td align="center" style="height: 53px;">
+        <img src="../../assets/main/logo_resset_pass.png">
+        <div (click)="closeSignup()" class="close-button"></div>
+      </td>
+    </tr>
+    </tbody>
+    <tbody class="form-tbody">
+    <tr>
+      <td>
+        <h2>Forgot your password?</h2>
+        <p>Please enter the email address registered on your account.</p>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <form method="post">
+          <input #resetEmail type="text" required placeholder="Email address">
+          <button (click)="resetPass(resetEmail.value)">Reset password</button>
+        </form>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

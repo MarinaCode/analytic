@@ -1,0 +1,16 @@
+<div class="row page" *ngIf="sitesCount > limit">
+  <div class="col-sm-5">
+    <div class="dataTables_info" id="list_info" role="status" aria-live="polite"> Showing {{currentPage}} of {{pageCounts}} entries
+    </div>
+  </div>
+  <div class="col-sm-7">
+    <div class="dataTables_paginate paging_simple_numbers" id="list_paginate">
+      <ul class="pagination">
+        <li class="paginate_button previous disabled" #list_previous id="list_previous">
+          <a href="javascript:;" (click) = "onNavigate(false, $event)" aria-controls="list" data-dt-idx="0" tabindex="0" class="previous"></a></li>
+        <md-input (keypress) = "onKeyPress($event)" value="{{page}}"></md-input>
+        <li class="paginate_button next" id="list_next" #list_next><a href="javascript:;" aria-controls="list" data-dt-idx="4" (click) = "onNavigate(true, $event)" tabindex="0" class="next"></a></li>
+      </ul>
+    </div>
+  </div>
+</div>

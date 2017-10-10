@@ -1,0 +1,326 @@
+.container-block {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+
+form.ng-valid {
+  height: 100%;
+}
+
+.panel {
+  margin-top: 40px;
+  max-width: 903px;
+  width: 100%;
+  margin: 0 55px;
+}
+
+.panel:last-child {
+  margin:0;
+}
+
+.info .panel-heading {
+  margin-bottom: 23px;
+}
+
+.info .row:first-child {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info .row .col-sm-6 select{
+  height: 35px;
+  width: 78px;
+  border-radius: 3px;
+  background-color: #fefdfd;
+  border:1px solid #eceaea;
+  outline: none;
+}
+
+.info .row .col-sm-6 md-input {
+  width: 159px;
+  height: 35px;
+  border-radius: 3px;
+  background-color: #fefdfd;
+  border: 1px solid #eceaea;
+  padding: 0 40px 0 15px;
+  outline: none;
+  background-image: url(../../assets/main/sprite.png);
+  background-position: 170px -198px;
+  background-repeat: no-repeat;
+}
+.no-data {
+  color: #f48c37;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px 55px;
+  max-width: 903px;
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+}
+
+.no-data .image-block {
+  width: 50px;
+  height:50px;
+  border-radius: 100%;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+.no-data .image-block img {
+  max-width: 100%;
+}
+
+.container-block .panel.none ~ .no-data {
+  display: flex;
+}
+
+
+.info .row .col-sm-12 table {
+  width: 100%;
+  border-collapse: collapse;
+  border:1px solid #d5d5d5;
+  margin: 15px 0px;
+  text-align: left;
+}
+
+.info .row .col-sm-12 table tbody tr {
+  border-top:1px solid #d5d5d5;
+  height: 60px;
+}
+
+.info .row .col-sm-12 table tbody tr td {
+  padding: 0 10px;
+  outline: none;
+}
+
+.info .row .col-sm-12 table tbody tr td .score {
+  width: 36px;
+  height: 36px;
+  border-radius: 100%;
+  color: #fff;
+  background-color: red;
+  display: block;
+  line-height: 36px;
+  text-align: center;
+  margin: 0 auto
+}
+
+.info .row .col-sm-12 table tbody tr td .score.valid {
+  background-color: #6cc422;
+}
+
+.info .row .col-sm-12 table tbody tr td .score.warning {
+  background-color: #e7893b;
+}
+
+.info .row .col-sm-12 table tbody tr td .score.critical {
+  background-color: #c1272d;
+}
+
+.info .row .col-sm-12 table tbody tr td:first-child a {
+  color: #31bbf5;
+}
+
+.info .row .col-sm-12 table tbody tr td:nth-child(2) {
+  width: 156px;
+  background-color: #f3f3f4;
+  color: #8f8f8f;
+  text-align: center;
+}
+
+.info .row .col-sm-12 table tbody tr td:nth-child(3),
+.info .row .col-sm-12 table tbody tr td:nth-child(4){
+  width: 275px;
+}
+
+.info .row .col-sm-12 table tbody tr td:nth-child(4) .btn-success {
+  margin-right: 10px;
+  color: #8f8f8f;
+  text-decoration: none;
+}
+
+.info .row .col-sm-12 table tbody tr td:nth-child(4) .delete {
+  color: #cf3232;
+  text-decoration: none;
+}
+
+.info .row .col-sm-12 table thead tr {
+  height: 35px;
+  font-size: 16px;
+}
+
+.info .row .col-sm-12 table thead tr th:nth-child(2),
+.info .row .col-sm-12 table thead tr th:nth-child(3) {
+  text-align: center;
+}
+
+.info .row .col-sm-12 table thead tr th {
+  outline: none;
+  padding-left: 10px;
+}
+
+.info .row:nth-child(3) {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.info .row .dataTables_paginate .pagination{
+  display: flex;
+  align-items: center;
+}
+
+.info .row .dataTables_paginate .pagination md-input {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  margin-left: 10px;
+  color: #404040;
+  width: 30px;
+  height: 30px;
+  display: block;
+  outline: none;
+  border: 1px solid #d8d8d8;
+}
+
+.info .row .dataTables_paginate li.disable a {
+  pointer-events: none;
+  position: relative;
+}
+
+.info .row .dataTables_paginate li.disable a:before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  opacity: 0.12;
+}
+
+.info .page {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.info .page .col-sm-5 {
+  margin-right: 5px;
+  color: #454545;
+  font-style: italic;
+}
+
+.info .row .dataTables_paginate ul li {
+  float: left;
+  text-align: center;
+  line-height: 30px;
+  margin-left: 10px;
+}
+
+.info .row .dataTables_paginate ul li a {
+  text-decoration: none;
+  color: #404040;
+  width: 30px;
+  height: 30px;
+  display: block;
+  outline: none;
+  border: 1px solid #d8d8d8;
+}
+
+.info .row .dataTables_paginate ul li .previous  {
+  background-image: url(../../assets/main/sprite.png);
+  background-position: -6px -237px;
+}
+
+.info .row .dataTables_paginate ul li .previous:active {
+  background-color: #7ac243;
+  background-position: -50px -265px;
+
+}
+
+.info .row .dataTables_paginate ul li .next:active {
+  background-color: #7ac243;
+  background-position: -7px -266px;
+}
+
+.info .row .dataTables_paginate ul li .next  {
+  background-image: url(../../assets/main/sprite.png);
+  background-position: -49px -237px;
+}
+
+.container-block .panel-body {
+  margin-top: 45px;
+}
+
+.container-block .panel-body .row {
+  height: 43px;
+  border:1px solid #f4f3f3;
+  border-radius: 3px;
+}
+
+.container-block .panel-body .row .col-sm-9 {
+  float: left;
+  width: 70%;
+}
+
+.container-block .panel-body .row .col-sm-9 .form-infield{
+  position: relative;
+}
+
+.container-block .panel-body .row .col-sm-9 .form-infield label{
+  position: absolute;
+  top:-41px;
+  color: #666666;
+}
+
+.container-block .panel-body .row .col-sm-9 .form-infield md-input{
+  width: calc(100% - 40px);
+  padding: 0 20px;
+
+}
+
+.container-block .panel-body .row .col-sm-3 {
+  float: left;
+  width: 30%;
+}
+
+.container-block .panel-body .row .col-sm-3 button{
+  width: 100%;
+  color: #fff;
+  height: 43px;
+  border: none;
+  background-color: #f48c37;
+  border-radius: 3px;
+  outline: none;
+  box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.2);
+  transition-duration: 0.2s;
+}
+.container-block .panel-body .row .col-sm-3 button:active {
+  box-shadow: none;
+}
+
+.nicetable {
+  color: #555;
+  font-size: 14px;
+}
+ .main {
+  margin-left: 220px;
+  padding: 20px 50px;
+  background: #EEE;
+  min-height: 800px;
+}
+.app-header {
+  margin: 0 0 0 220px;
+  background: #FFF;
+  padding: 0;
+  color: #666;
+  font-weight: 300;
+  font-size: 18px;
+  position: relative;
+  min-height: 64px;
+  line-height: 64px;
+}

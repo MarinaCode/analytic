@@ -1,0 +1,141 @@
+<app-loading [isRunning]="isMasked"></app-loading>
+<div class="container">
+  <div class="container-block">
+  <div class="container-header">
+    <!--<div class="rightside">-->
+      <!--<ul >-->
+        <!--<li class="l-left"><a class="update" href="">Update</a></li>-->
+        <!--<li class="l-left"><a  class="export" href="">Export</a></li>-->
+      <!--</ul>-->
+    <!--</div>-->
+  </div>
+  <div class="container-body">
+    <div class="analyze-info">
+      <div class="image-block">
+        <div class="image">
+          <img src="{{screenshot}}" height="241" width="375" alt="{{ mainUrl }}">
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="page-info">
+          <h3>{{ mainUrl }}</h3>
+          <p>{{ fullUrl}}</p>
+          <p><i></i>{{ lastCheck }}</p>
+        </div>
+        <!--
+        <div class="scores">
+          <div class="col1 col"><p>{{average}}</p><span>Average</span></div>
+          <div class="col2 col"><p>{{critical}}</p>  <span>Critical</span></div>
+          <div class="col3 col"><p>{{warning}}</p> <span>Warning</span></div>
+          <div class="col4 col"><p>{{valid}}</p> <span>Valid</span></div>
+        </div>-->
+        <table class="scores" cellpadding="0" cellspacing="0">
+          <tr>
+            <td colspan="3">Ratio text/code</td>
+          </tr>
+          <tr>
+            <td>
+              Critical
+            </td>
+            <td><div class="diagram"><div class="diagram1" #diagram1></div></div></td>
+            <td><p>{{critical}}</p></td>
+          </tr>
+          <tr>
+            <td>
+              Warning
+            </td>
+            <td><div class="diagram"><div class="diagram2" #diagram2></div></div></td>
+            <td><p>{{warning}}</p></td>
+          </tr>
+          <tr>
+            <td>
+              Valid
+            </td>
+            <td><div class="diagram"><div class="diagram3" #diagram3></div></div></td>
+            <td><p>{{valid}}</p></td>
+          </tr>
+          <tr>
+            <td>
+              Average
+            </td>
+            <td><div class="diagram"><div class="diagram4" #diagram4></div></div></td>
+            <td><p>{{average}}</p></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <!--///-->
+    <md-tab-group class="tabs" *ngIf="!isMasked">
+        <md-tab>
+        <template md-tab-label>
+          <span class="summary-icon"></span>
+          <span class="title">Summary</span>
+          <span class="text">{{average}} %</span>
+        </template>
+        <template md-tab-content>
+            <app-summary async [problematicData] = 'problematicData' [validSeo]='validSeo' [validContent]='validContent' [validDesign]='validDesign' [validPerformance]='validPerformance' [validAccessibility]='validAccessibility'></app-summary>
+          <!--</md-content>-->
+        </template>
+      </md-tab>
+      <md-tab>
+        <template md-tab-label>
+          <span class="seo-icon"></span>
+          <span class="title">SEO</span>
+          <span class="text">{{validSeo}} %</span>
+        </template>
+        <template md-tab-content>
+          <!--<md-content class="md-padding seo">-->
+            <app-seo-overview [siteData]='siteData'></app-seo-overview>
+          <!--</md-content>-->
+        </template>
+
+      </md-tab>
+      <md-tab>
+        <template md-tab-label>
+          <span class="content-icon"></span>
+          <span class="title">Content</span>
+          <span class="text">{{ validContent }} %</span>
+        </template>
+        <template md-tab-content>
+            <div class="tab-body">
+              <app-analysis-content [siteData]='siteData'></app-analysis-content>
+            </div>
+        </template>
+      </md-tab>
+      <md-tab>
+        <template md-tab-label>
+          <span class="design-icon"></span>
+          <span class="title">Design</span>
+          <span class="text">{{validDesign}} %</span>
+        </template>
+        <template md-tab-content>
+            <app-design [siteData]='siteData'></app-design>
+        </template>
+      </md-tab>
+      <md-tab>
+        <template md-tab-label>
+          <span class="performance-icon"></span>
+          <span class="title">Performance</span>
+          <span class="text">{{validPerformance}} %</span>
+        </template>
+        <template md-tab-content>
+          <!--<md-content class="md-padding performance">-->
+            <app-performance [siteData]='siteData'></app-performance>
+          <!--</md-content>-->
+        </template>
+      </md-tab>
+      <md-tab>
+        <template md-tab-label>
+          <span class="accessibility-icon"></span>
+          <span class="title">Accessibility</span>
+          <span class="text">{{validAccessibility}} %</span>
+        </template>
+        <template md-tab-content>
+          <app-accessibility [siteData]='siteData'></app-accessibility>
+        </template>
+      </md-tab>
+    </md-tab-group>
+  </div>
+  <div class="container-footer"></div>
+</div>
+</div>

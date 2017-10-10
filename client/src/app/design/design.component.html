@@ -1,0 +1,175 @@
+<div class="tab-body">
+  <!--<md-card>-->
+    <!--<md-card-title><p>Design Overview</p></md-card-title>-->
+    <!--<md-card-content>-->
+    <!--</md-card-content>-->
+  <!--</md-card>-->
+  <md-card>
+    <md-card-title><p>Standardization</p></md-card-title>
+    <md-card-content>
+      <ul class="card-list">
+        <li>
+          <div class="left-side"><p><span></span>Doctype</p></div>
+          <div class="right-side">
+            <div class="infoBlock">
+              <img src="../../assets/main/information_icon.png" class="infoIcon"/>
+              <p class="informationBlock">Between 140 and 170 characters (spaces included) are advised. The meta description tag is read by search engines and is
+                displayed in SERPs. This tag describes the page content without being a straight forward list of keywords and must contain
+                the most important keywords of the page. Ensure that each of your web pages has a unique meta description.
+                The meta description tag should appear after the title tag inside the head tag.</p>
+            </div>
+          </div>
+        </li>
+        <li [ngClass]="[ designScore.charsetClass == 0 ? 'valid' : 'warning']">
+          <div class="left-side"><p><span></span>Charset</p></div>
+          <div class="right-side">
+            <div class="infoBlock">
+              <img src="../../assets/main/information_icon.png" class="infoIcon"/>
+              <p class="informationBlock">Between 140 and 170 characters (spaces included) are advised. The meta description tag is read by search engines and is
+                displayed in SERPs. This tag describes the page content without being a straight forward list of keywords and must contain
+                the most important keywords of the page. Ensure that each of your web pages has a unique meta description.
+                The meta description tag should appear after the title tag inside the head tag.</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </md-card-content>
+  </md-card>
+  <md-card>
+    <md-card-title><p>Layout quality</p></md-card-title>
+    <md-card-content>
+      <ul class="card-list">
+        <li [ngClass]="[ designScore.tableClass == 0 ? 'valid' : 'critical']">
+          <div class="left-side"><p><span></span>Table design</p></div>
+          <div class="right-side">
+            <div class="infoBlock">
+              <img src="../../assets/main/information_icon.png" class="infoIcon"/>
+              <p class="informationBlock">Between 140 and 170 characters (spaces included) are advised. The meta description tag is read by search engines and is
+                displayed in SERPs. This tag describes the page content without being a straight forward list of keywords and must contain
+                the most important keywords of the page. Ensure that each of your web pages has a unique meta description.
+                The meta description tag should appear after the title tag inside the head tag.</p>
+            </div>
+            <div class="right-side-block">
+              <p  *ngIf="designScore.tables > 0">{{ designScore.tables }}</p>
+              <p  *ngIf="designScore.tables <= 0">There are no table</p>
+            </div>
+          </div>
+        </li>
+        <li [ngClass]="[ designScore.commentClass == 0 ? 'valid' : 'warning']">
+          <div class="left-side"><p><span></span>Commented HTML code</p></div>
+          <div class="right-side">
+            <div class="infoBlock">
+              <img src="../../assets/main/information_icon.png" class="infoIcon"/>
+              <p class="informationBlock">Between 140 and 170 characters (spaces included) are advised. The meta description tag is read by search engines and is
+                displayed in SERPs. This tag describes the page content without being a straight forward list of keywords and must contain
+                the most important keywords of the page. Ensure that each of your web pages has a unique meta description.
+                The meta description tag should appear after the title tag inside the head tag.</p>
+            </div>
+            <div class="right-side-block">
+              <p *ngIf = "designScore.comments.length > 0">There are HTML comments.</p>
+              <p *ngIf = "designScore.comments.length <= 0">There are no HTML comments.</p>
+              <p *ngIf = "designScore.comments.length > 0"><i>{{ designScore.comments.length  }} % </i> of HTML code commented.</p>
+            </div>
+          </div>
+        </li>
+        <li [ngClass]="[ designScore.frameClass == 0 ? 'valid' : 'critical']">
+          <div class="left-side"><p><span></span>Frames and iFrames</p></div>
+          <div class="right-side">
+            <div class="infoBlock">
+              <img src="../../assets/main/information_icon.png" class="infoIcon"/>
+              <p class="informationBlock">Between 140 and 170 characters (spaces included) are advised. The meta description tag is read by search engines and is
+                displayed in SERPs. This tag describes the page content without being a straight forward list of keywords and must contain
+                the most important keywords of the page. Ensure that each of your web pages has a unique meta description.
+                The meta description tag should appear after the title tag inside the head tag.</p>
+            </div>
+            <div class="right-side-block">
+              <p *ngIf = "designScore.getFrames.frame">{{ designScore.getFrames.frame}} Frames</p>
+              <p *ngIf = "designScore.getFrames.iframe">{{ designScore.getFrames.iframe}} iFrames</p>
+              <p *ngIf = "designScore.getFrames.frameset">{{ designScore.getFrames.frameset}} Framesets</p>
+              <p *ngIf = "!designScore.getFrames.frame && !designScore.getFrames.iframe && !designScore.getFrames.frameset"> No frames are found</p>
+            </div>
+          </div>
+        </li>
+        <li [ngClass]="[ designScore.swfClass == 0 ? 'valid' : 'critical']">
+          <div class="left-side"><p><span></span>Flash</p></div>
+          <div class="right-side">
+            <div class="infoBlock">
+              <img src="../../assets/main/information_icon.png" class="infoIcon"/>
+              <p class="informationBlock">Between 140 and 170 characters (spaces included) are advised. The meta description tag is read by search engines and is
+                displayed in SERPs. This tag describes the page content without being a straight forward list of keywords and must contain
+                the most important keywords of the page. Ensure that each of your web pages has a unique meta description.
+                The meta description tag should appear after the title tag inside the head tag.</p>
+            </div>
+            <div class="right-side-block" *ngIf="designScore.swfs.length > 0">
+              <p *ngFor="let swf of  designScore.swfs">{{ swf }}</p>
+            </div>
+            <div class="right-side-block" *ngIf="designScore.swfs.length <= 0">
+              <p>No Flash</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </md-card-content>
+  </md-card>
+  <md-card>
+    <md-card-title><p>Security</p></md-card-title>
+    <md-card-content>
+      <ul class="card-list">
+        <li class = "info">
+          <div class="left-side" ><p><span></span>Scannable email address</p></div>
+          <div class="right-side">
+            <div class="infoBlock">
+              <img src="../../assets/main/information_icon.png" class="infoIcon"/>
+              <p class="informationBlock">Between 140 and 170 characters (spaces included) are advised. The meta description tag is read by search engines and is
+                displayed in SERPs. This tag describes the page content without being a straight forward list of keywords and must contain
+                the most important keywords of the page. Ensure that each of your web pages has a unique meta description.
+                The meta description tag should appear after the title tag inside the head tag.</p>
+            </div>
+            <div class="right-side-block" *ngIf="email">
+              <p *ngFor="let email of emails">{{email}}</p>
+            </div>
+            <div class="right-side-block" *ngIf="!email">
+              <p>No Email Address has been found</p>
+            </div>
+          </div>
+        </li>
+        <li [ngClass]="[designScore.protectClass == 0 ? 'valid' : 'critical']">
+          <div class="left-side"><p><span></span>X-XSS-Protection</p></div>
+          <div class="right-side">
+            <div class="infoBlock">
+              <img src="../../assets/main/information_icon.png" class="infoIcon"/>
+              <p class="informationBlock">Between 140 and 170 characters (spaces included) are advised. The meta description tag is read by search engines and is
+                displayed in SERPs. This tag describes the page content without being a straight forward list of keywords and must contain
+                the most important keywords of the page. Ensure that each of your web pages has a unique meta description.
+                The meta description tag should appear after the title tag inside the head tag.</p>
+            </div>
+          </div>
+        </li>
+        <li [ngClass]="[ designScore.contetntSecureClass == 0 ? 'valid' : 'critical']">
+          <div class="left-side"><p><span></span>Content security header</p></div>
+          <div class="right-side">
+            <div class="infoBlock">
+              <img src="../../assets/main/information_icon.png" class="infoIcon"/>
+              <p class="informationBlock">Between 140 and 170 characters (spaces included) are advised. The meta description tag is read by search engines and is
+                displayed in SERPs. This tag describes the page content without being a straight forward list of keywords and must contain
+                the most important keywords of the page. Ensure that each of your web pages has a unique meta description.
+                The meta description tag should appear after the title tag inside the head tag.</p>
+            </div>
+            <div class="right-side-block">
+              <p>Content-Security-Policy has been found.</p>
+              <div class="code" >
+                <p class="p-width100">Lorem Ipsum</p>
+              </div>
+            </div>
+          </div>
+        </li>
+        <!--<li>-->
+          <!--<div class="left-side"><p><span></span>Https</p></div>-->
+            <!--<div class="right-side-block">-->
+              <!--<p>HTTPS is enabled and has a valid certificate.</p>-->
+            <!--</div>-->
+        <!--</li>-->
+      </ul>
+    </md-card-content>
+  </md-card>
+</div>

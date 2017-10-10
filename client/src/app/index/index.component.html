@@ -1,0 +1,173 @@
+<app-login #log></app-login>
+<app-loading [isRunning]="isMasked"></app-loading>
+<div class="wrapper">
+    <div class="main">
+    <div class="search-block">
+      <div class="text-block">
+        <span class="first-text">
+          How strong is your site?
+        </span>
+      </div>
+      <label>
+        <input #url value="" placeholder="https://">
+        <button md-raised-button class="md-raised md-primary" (click)="check(url.value);">Check</button>
+      </label>
+    </div>
+  </div>
+</div>
+<div class="selection">
+  <div class="section-header">
+    <h2>75,000+ Sites are Reviewed Monthly by MadCrocs Clients</h2>
+    <h3>From small businesses to big companies, see why MadCrocs is trusted by thousands.</h3>
+  </div>
+  <section>
+    <div class="section-block">
+      <md-card [ngClass]="{image: true}">
+        <div class="image-block">
+          <img src="../../assets/main/screen1.png" alt="">
+        </div>
+      </md-card>
+      <md-card [ngClass]="{text: true}">
+        <md-card-title>Page Analysis</md-card-title>
+        <md-card-subtitle>A deep On-Page SEO analysis</md-card-subtitle>
+        <md-card-content>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
+        </md-card-content>
+        <md-card-actions>
+          <button md-raised-button>Learn More</button>
+        </md-card-actions>
+      </md-card>
+    </div>
+  </section>
+  <section>
+    <div class="section-block">
+      <md-card [ngClass]="{text: true}">
+        <md-card-title>Plagiarism Cheker</md-card-title>
+        <md-card-subtitle>Analyze thousands of pages</md-card-subtitle>
+        <md-card-content>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
+        </md-card-content>
+        <md-card-actions>
+          <button md-raised-button>Learn More</button>
+        </md-card-actions>
+      </md-card>
+      <md-card [ngClass]="{image: true}">
+        <div class="image-block">
+          <img src="../../assets/main/screen2.jpg" alt="">
+        </div>
+      </md-card>
+    </div>
+  </section>
+  <section>
+    <div class="section-block">
+      <md-card [ngClass]="{image: true}">
+        <div class="image-block">
+          <img src="../../assets/main/coming-soon.png" alt="">
+        </div>
+      </md-card>
+      <md-card [ngClass]="{text: true}">
+        <md-card-title>Site Vs Site</md-card-title>
+        <md-card-subtitle>Discover your real position</md-card-subtitle>
+        <md-card-content>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
+        </md-card-content>
+        <md-card-actions>
+          <button md-raised-button>Learn More</button>
+        </md-card-actions>
+      </md-card>
+    </div>
+  </section>
+  <section>
+    <div class="section-header">
+      <h2>Trusted and Loved by</h2>
+    </div>
+  </section>
+  <section [ngClass]="{company: true}">
+    <div class="companies">
+      <div class="item">
+        <div class="image-block">
+          <img src="../../assets/main/company2.png" alt="">
+        </div>
+      </div>
+      <div class="item">
+        <div class="image-block">
+          <img src="../../assets/main/company4.png" alt="">
+        </div>
+      </div>
+      <div class="item">
+        <div class="image-block">
+          <img src="../../assets/main/company7.png" alt="">
+        </div>
+      </div>
+      <div class="item">
+        <div class="image-block">
+          <img src="../../assets/main/company5.png" alt="">
+        </div>
+      </div>
+      <div class="item">
+        <div class="image-block">
+          <img src="../../assets/main/company1.png" alt="">
+        </div>
+      </div>
+      <div class="item">
+        <div class="image-block">
+          <img src="../../assets/main/company3.png" alt="">
+        </div>
+      </div>
+      <div class="item">
+        <div class="image-block">
+          <img src="../../assets/main/company6.png" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="comments-block">
+      <md-card>
+        <div class="image-block">
+          <div class="centering">
+            <img src="https://scontent-fra3-1.xx.fbcdn.net/v/t1.0-9/15242002_1265221886903024_563478735740895944_n.jpg?oh=7e569956034d142ebbee51079c8b4ee4&oe=5947C4EE" alt="">
+          </div>
+        </div>
+        <md-card-content>
+          <p>Thanks to MadCrocs, our customers save time and money. This powerful tool offers a simple and clear SEO review : we no longer need to spend hours in complex explanations.</p>
+        </md-card-content>
+        <md-card-title>Marin Khanamiryan</md-card-title>
+      </md-card>
+      <md-card>
+        <div class="image-block">
+          <div class="centering">
+            <img src="https://fb-s-b-a.akamaihd.net/h-ak-xpa1/v/t1.0-9/11693844_956969554323521_361051492775647621_n.jpg?oh=59a5b0d688688fc6305f46764a0f601b&oe=5901837E&__gda__=1497952692_a36ee0f9925a3553f05b52e967befbd0" alt="">
+          </div>
+        </div>
+        <md-card-content>
+          <p>We have tested a multitude of tools and it is the first time we have a REAL SEO tool able to carry out a precise
+            and targeted audit! The scores and charts allow us to notice at a glance the key aspects we have to work on!</p>
+        </md-card-content>
+        <md-card-title>Hakob Grigoryan</md-card-title>
+      </md-card>
+      <md-card>
+        <div class="image-block">
+          <div class="centering">
+            <img src="https://scontent-fra3-1.xx.fbcdn.net/v/t1.0-9/11053672_920954014633320_3273247266627391338_n.jpg?oh=c3aae8156345186b0057683039685286&oe=59360538" alt="">
+          </div>
+        </div>
+        <md-card-content>
+          <p>We regularly use MadCrocs wether to improve our own SEO or that of our clients. It is a complete and modern tool which offers a real spare of time for web agencies.</p>
+        </md-card-content>
+        <md-card-title>Tigran Ghazaryan</md-card-title>
+      </md-card>
+    </div>
+  </section>
+</div>
+<!--<footer>-->
+  <div class="footer-block">
+    <app-footer></app-footer>
+  </div>
+<!--</footer>-->

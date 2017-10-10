@@ -1,0 +1,211 @@
+$header-color: #2e637a;
+$border-color: #004c66;
+$valid-color: #6cc422;
+$warning-color: #e7893b;
+$critical-color: #c1272d;
+
+.flex-centering {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-block {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  height: 100%;
+  .container-header {
+    margin-bottom: 0;
+  }
+}
+
+.basic-background-color {
+  &.valid {
+    background-color: $valid-color;
+  }
+  &.warning {
+    background-color: $warning-color;
+  }
+  &.critical {
+    background-color: $critical-color;
+  }
+}
+
+.basic-color {
+  &.valid {
+    color: $valid-color;
+  }
+  &.warning {
+    color: $warning-color;
+  }
+  &.critical {
+    color: $critical-color;
+  }
+}
+
+span {
+  @extend .basic-color;
+}
+
+button {
+  @extend .basic-background-color;
+}
+
+app-footer {
+  margin-top: 0;
+}
+
+.pricing-table {
+  @extend .flex-centering;
+  width: 100%;
+  .pricing-block {
+    @extend .flex-centering;
+    width: 100%;
+    padding: 60px 15px;
+    md-card {
+      width: 100%;
+      max-width: 335px;
+      padding:0;
+      margin: 0 -1px;
+      border-radius: 0;
+      border-top-right-radius: 8px;
+      border-top-left-radius: 8px;
+      overflow: hidden;
+      border-bottom: 4px solid $border-color;
+      &:nth-child(2) {
+        z-index: 7;
+        padding-bottom: 30px;
+        box-sizing: border-box;
+        background-color: #f5f7f9;
+        box-shadow: 20px 0 10px -10px rgba(0, 0, 0, .15), -20px 0 10px -10px rgba(0, 0, 0, .15);
+        position: relative;
+        max-width: 360px;
+        button {
+          position: relative;
+          top: 20px;
+        }
+        .pricing-header {
+          border-color: $warning-color;
+          .before {
+            background-color: $warning-color;
+          }
+        }
+      }
+      &:first-child {
+        .pricing-header {
+          border-color: $valid-color;
+          .before {
+            background-color: $valid-color;
+          }
+        }
+      }
+      &:nth-child(3) {
+        .pricing-header {
+          border-color: $critical-color;
+          .before {
+            background-color: $critical-color;
+          }
+        }
+      }
+      .pricing-header {
+        background-color: $header-color;
+        text-align: center;
+        border-bottom: 4px solid transparent;
+        color: #fff;
+        height: 110px;
+        @extend .flex-centering;
+        flex-direction: column;
+        h2 {
+          font-size: 30px;
+        }
+        h3 {
+          font-size: 12px;
+          span {
+            font-size: 26px;
+          }
+        }
+        .before {
+          position: relative;
+          top: 26px;
+          width: 12px;
+          height: 12px;
+          transform: rotate(45deg);
+          border-top-left-radius: 20px;
+        }
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        tr {
+          height: 95px;
+          background-color: #fff;
+          &:nth-child(2n + 2) {
+            background-color: #f6f6f6;
+          }
+        }
+        td {
+          text-align: center;
+          h2 {
+            color: #565253;
+            font-size: 17px;
+            margin-bottom: 3px;
+            span {
+              color: $header-color;
+            }
+          }
+          h3 {
+            color: #615e5e;
+            font-size: 15px;
+          }
+          h4 {
+            color: #a6a4a4;
+            font-size: 12px;
+            margin-bottom: 3px;
+          }
+          p {
+            text-align: left;
+            a {
+              text-decoration: none;
+              color: $valid-color;
+              margin-left: 5px;
+              font-size: 11px;
+            }
+          }
+          button {
+            color: #fff;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 4px;
+            box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.2);
+            &:active {
+              box-shadow: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .pricing-block {
+    flex-flow: row wrap;
+    md-card{
+      margin:10px !important;
+      &:nth-child(2) {
+        box-shadow: none !important;
+        padding: 0 !important;
+        max-width: 335px !important;
+      }
+    }
+    table {
+      tr {
+        height:75px !important;
+        button {
+          position: inherit !important;
+        }
+      }
+    }
+  }
+}

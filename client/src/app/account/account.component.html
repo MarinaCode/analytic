@@ -1,0 +1,132 @@
+<div class="container">
+  <div class="container-block">
+    <div class="container-header">
+      <h3>My Account</h3>
+      <div>
+        <a routerLink="/dashboard">Dashboard</a> / <a routerLink="/account">My Account</a>
+      </div>
+    </div>
+    <div class="register">
+      <form [formGroup]="form" (ngSubmit)="submitForm(form.value)" >
+        <div class="image-block">
+          <img #image_block src="{{image}}" alt="">
+          <div class="opacity">
+            <input type="file" class="form-control" name="file" (change)="changeImage($event)"/>
+            <span class="photo-icon"></span></div>
+        </div>
+      </form>
+      <md-tab-group>
+          <md-tab>
+            <template md-tab-label><span #myaccountProfLabel>Profile</span></template>
+              <template md-tab-content>
+                <form [formGroup]="form" (ngSubmit)="updateUserData(form.value)">
+                  <div class="account-block">
+                    <div #divParentFirstName class="item">
+                      <md-input formControlName="first_name" class="demo-full-width" placeholder="{{ 'MAD_FIRST_NAME' | translate}}" (keyup)="keyUpFirstName($event)"></md-input>
+                      <span class="symbol" #firstNameErr>Max 10 symbol</span>
+                    </div>
+                    <div class="item" #divParentLastName>
+                      <md-input formControlName="last_name" class="demo-full-width" placeholder="{{ 'MAD_LAST_NAME' | translate}}" (keyup)="keyUpLastName($event)"></md-input>
+                      <span class="symbol" #lastNameErr>Max 10 symbol</span>
+                    </div>
+
+                    <div #divParentUserName class="item" [ngClass]="{'error':!form.controls['username'].valid && form.controls['username'].touched}">
+                      <md-input formControlName="username" class="demo-full-width" placeholder="{{ 'MAD_USERNAME' | translate}} " (keyup)="keyUpUserName($event)"></md-input>
+                      <span class="symbol" #userNameLengthErr>Max 10 symbol</span>
+                    </div>
+                    <div class="item">
+                      <md-input formControlName="company" class="demo-full-width" placeholder="{{'MAD_COMPANY' | translate }}"></md-input>
+                    </div>
+                    <div class="item" >
+                      <md-input   formControlName="profession" class="demo-full-width" placeholder="Profession"></md-input>
+                    </div>
+
+                    <div #readTest class="item" [ngClass]="{'error':form.controls['email'].touched && !form.controls['email'].valid}">
+                      <span id="emailErr" #emailErr>Email Field Is Empty</span>
+                      <md-input  formControlName="email" class="demo-full-width" placeholder="{{ 'MAD_EMAIL' | translate }}" #emailInput></md-input>
+                      <input formControlName="emailType" type="hidden"/>
+                    </div>
+                    <div class="item">
+                      <div class="selectbox" >
+                        <select formControlName="country" class="form-control" [(ngModel)]="form.country">
+                          <option value="">{{'MAD_COUNTRY' | translate}}</option>
+                          <option  *ngFor="let country of country" [value]="country.value">{{country.display}}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="item"><md-input class="demo-full-width" formControlName="phone" placeholder="{{'MAD_PHONE' | translate}}"></md-input></div>
+                    <div class="item birth">
+                      <p>{{'MAD_BIRTH_DAY' | translate}}</p>
+                      <div class="selectboxing">
+                        <div class="box">
+                          <select formControlName="month" class="form-control" [(ngModel)]="form.month">
+                            <option  *ngFor="let month of month" [value]="month.value">{{month.display}}</option>
+                          </select>
+                          <span class="arrow"></span>
+                        </div>
+                        <div class="box">
+                          <select formControlName="day" class="form-control" [(ngModel)]="form.day">
+                            <option  *ngFor="let day of day" [selected]=true [value]="day.value">{{day.display ? day.display : '-'}}</option>
+                          </select>
+                          <span class="arrow"></span>
+                        </div>
+                        <div class="box">
+                          <select formControlName="year" class="form-control" [(ngModel)]="form.year">
+                            <option  *ngFor="let year of year" [value]="year.value">{{year.display}}</option>
+                          </select>
+                          <span class="arrow"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item gender">
+                      <p>{{'MAD_GENDER' | translate}} </p>
+                      <md-radio-group  formControlName="gender" [(ngModel)]="form.gender">
+                        <md-radio-button value="0" name="gender">{{'MAD_MALE' | translate}}</md-radio-button>
+                        <md-radio-button value="1" name="gender">{{'MAD_FEMALE' | translate}}</md-radio-button>
+                        <md-radio-button value="2" name="gender">{{'MAD_OTHER' | translate}}</md-radio-button>
+                      </md-radio-group>
+                    </div>
+                    <div class="save-block">
+                      <button type="submit" class="save" #saveBtn >Submit</button>
+                    </div>
+                  </div>
+                </form>
+              </template>
+          </md-tab>
+          <md-tab>
+            <template md-tab-label><span id="MyaccountPassLabel" #myaccountPassLabel>Password</span></template>
+              <template md-tab-content>
+                <form [formGroup]="form" (ngSubmit)="updatePassword(form.value)">
+                  <div class="account-block">
+                    <div class="item change">
+                      <div class="hidden" >
+                        <div class="hidden-block">
+                          <label class="item" [ngClass]="{'error': form.controls['current'].touched && !form.controls['current'].valid}">
+                            <span id="currentPassInvalid" #currentPassInvalid>Your current password is invalid</span>
+                            <div #divParentCurrentPass style="width: 100%;"><md-input (click) = "hide($event)" class="demo-full-width"  type="password"  placeholder="Type your current password" formControlName="current"  #currentPass></md-input></div>
+                            <i id="ChangePassSymbolErr" #changePassSymbolErr>Min 8 symbol</i>
+                          </label>
+                          <label [ngClass]="{'error':  !form.controls['pass'].valid || form.controls['pass'].value != form.controls['confirm'].value }">
+                            <i></i>
+                            <md-input (click) = "hidePass($event)" #typeNewPass class="demo-full-width" type="password"  placeholder="Type your new password" formControlName="pass"></md-input>
+                          </label>
+                          <label [ngClass]="{'error':  !form.controls['confirm'].valid || form.controls['pass'].value != form.controls['confirm'].value }">
+                            <i></i>
+                            <md-input (click) = "hidePass($event)" #retypeNewPass class="demo-full-width" type="password"  placeholder="Retype your new password" formControlName="confirm"></md-input>
+                            <span id="changedPass" #changedPass>Entered passwords don't match</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="save-block">
+                      <button type="submit" class="save" #changePassBtn>Change password</button>
+                    </div>
+                  </div>
+               </form>
+              </template>
+          </md-tab>
+        </md-tab-group>
+    </div>
+    <app-footer></app-footer>
+  </div>
+</div>

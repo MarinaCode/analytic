@@ -1,0 +1,91 @@
+<!--login-->
+<div class="body" *ngIf="contactUsLogin">
+ <div class="totalLogin">
+    <div>
+      <div class="contactUsLogin">
+        <h1 class="page-name">Contact Us</h1>
+        <div>
+          <a routerLink="/dashboard" class="page-home">Dashboard</a>
+          <span>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;</span>
+          <a routerLink="/contact" class="page-this">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    <div id="content" class="content">
+      <main>
+        <section class="form">
+          <div>
+            <img alt="message-photo" src="../../assets/main/message_photo.png" class="displayNone">
+            <img alt="message-photo" src="../../assets/main/message_photo_mobile.png" class="displayNone-mobile">
+          </div>
+          <form [formGroup]="formContact" (ngSubmit)="contactForm(formContact.value, $event)">
+            <div #username>
+              <img src="../../assets/main/username_icon.png">
+              <input type="text" placeholder="Username" formControlName="username">
+            </div>
+            <div #email>
+              <div><img src="../../assets/main/email_icon.png"></div>
+              <input type="text" placeholder="Email" formControlName="email">
+            </div>
+            <div #subject>
+              <div><img src="../../assets/main/subject_icon.png" class="subject-photo"></div>
+              <input type="text" placeholder="Subject" formControlName="subject">
+            </div>
+            <textarea placeholder="Message..." formControlName="message" #message></textarea>
+            <button type="submit" class="save" #saveBtn>Submit</button>
+          </form>
+        </section>
+      </main>
+    </div>
+    <div class="menu-mobile">
+      <div class="menu-content">
+        <div class="menu-btn"><img src="../../assets/main/menu_btn_mobile.png"></div>
+        <div class="note">
+         <img src="../../assets/main/img_note_mobile.png">
+          <div>7</div>
+        </div>
+        <div class="user-img"><img src="../../assets/main/user_img_mobile.png"></div>
+        <div></div>
+      </div>
+    </div>
+    <app-footer></app-footer>
+  </div>
+</div>
+<!--logout-->
+<div class="body" *ngIf="contactUsLogout">
+  <div class="totalLogout">
+    <div class="contactUsLogout">
+      <h1>Contact Us</h1>
+      <div class="greenLine greenLine1"></div>
+      <div class="greenLine greenLine2"></div>
+    </div>
+    <div class="content">
+      <main>
+        <section class="form">
+          <div>
+            <img alt="message-photo" src="../../assets/main/message_photo.png" class="displayNone">
+            <img alt="message-photo" src="../../assets/main/message_photo_mobile.png" class="displayNone-mobile">
+          </div>
+          <form [formGroup]="formContact" (ngSubmit)="contactForm(formContact.value, $event)">
+            <div #username>
+              <img src="../../assets/main/username_icon.png">
+              <input type="text" placeholder="Username" formControlName="username">
+            </div>
+            <div #email>
+              <div><img src="../../assets/main/email_icon.png"></div>
+              <input type="text" placeholder="Email" formControlName="email">
+            </div>
+            <div #subject>
+              <div><img src="../../assets/main/subject_icon.png" class="subject-photo"></div>
+              <input type="text" placeholder="Subject" formControlName="subject">
+            </div>
+            <textarea placeholder="Message..." formControlName="message" #message></textarea>
+            <button type="submit" class="save" #saveBtn>Submit</button>
+          </form>
+        </section>
+      </main>
+    </div>
+    <app-footer></app-footer>
+  </div>
+</div>
+

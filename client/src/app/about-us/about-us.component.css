@@ -1,0 +1,384 @@
+.bodyLogin {
+  display: flex;
+}
+.totalLogin {
+  position: relative;
+  margin-top: 64px;
+}
+.displayNone-mobile {
+  display: none;
+}
+.aboutUsLogin {
+  height: 61px;
+  background-color: #eaecf1;
+  color: #99999a;
+  font-family: "Open sans";
+  padding: 15px;
+  box-sizing: border-box;
+}
+.page-name {
+  font-size: 20px;
+  color: #99999a;
+  line-height: 20px;
+}
+.page-home,
+.page-this {
+  color: #99999a;
+  text-decoration: none;
+  font-size: 10px;
+}
+.page-name + div {
+  line-height: 10px;;
+}
+.page-home + span {
+  font-size: 10px;
+}
+.aboutUsLogin div {
+  width: inherit;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3px;
+}
+main section:last-child {
+  margin-bottom: 0px;
+}
+.aboutUsLogout {
+  width: 100%;
+  height: 170px;
+  font-family: "Open sans";
+  color: #FFF;
+  text-align: center;
+  padding-top: 85px;
+  box-sizing: border-box;
+  position: relative;
+  background-color: #2a5166;
+}
+.aboutUsLogout h1 {
+  font-size: 48px;
+  font-weight: 300;
+
+}
+.greenLine {
+  position: absolute;
+  width: calc(50% - 120px);
+  height: 1px;
+  background-color: #6cc421;
+  bottom: 45px;
+}
+.greenLine1 {
+  left: 0;
+}
+.greenLine2 {
+  right: 0;
+}
+main {
+  width: 100%;
+  background-color: #f5f7f9;
+  position: relative;
+}
+.main-content {
+  padding: 45px 0px;
+  margin: 0 auto;
+}
+.content-of-ourgoals,
+.content-of-weare,
+.content-of-whytrustus {
+  max-width: 1014px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3px;
+  margin: 0 auto;
+}
+h2,
+h3,
+p {
+  margin: 0;
+}
+h2 {
+  font-size: 24px;
+  font-family: "Open Sans";
+  color: rgb( 44, 87, 112 );
+  text-align: left;
+}
+.whyTrustUs h2 {
+  margin-top: 38px;
+}
+h3 {
+  margin: 12px 0 13px 0;
+  font-size: 18px;
+  font-family: "Open Sans";
+  color: rgb( 108, 196, 33 );
+  text-align: left;
+}
+p {
+  font-size: 12px;
+  font-family: "Open Sans";
+  color: rgb( 62, 61, 61 );
+  text-align: left;
+  line-height: 14px;
+}
+.img1, .img2, .img3 {
+  height: 210px;
+  border: 1px solid #f7f8fa;
+  background-color: #FFF;
+}
+.img1 {
+  border-radius: 106px 0 0 106px;
+  margin-left: 162px;
+  padding-left: 70px;
+  padding-right: 24px;
+}
+.img2 {
+  border-radius: 0px 106px 106px 0px;
+  margin-right: 162px;
+  padding: 0px 60px;
+}
+.img3 {
+  border-radius: 106px 0 0 106px;
+  margin-left: 162px;
+  padding-left: 84px;
+  padding-right: 54px;
+}
+.img1 .displayNone {
+  margin-top: 40px;
+}
+.img2 .displayNone {
+  margin-top: 20px;
+}
+.img3 .displayNone {
+  margin-top: 25px;
+}
+.whiteZone {
+  width: calc(50% - 506px);
+  height: 210px;
+  border: 1px solid #f7f8fa;
+  background-color: #FFF;
+  position: absolute;
+}
+.whiteZone1,
+.whiteZone3 {
+  right: 0px;
+  border-left-color: #FFF;
+}
+.whiteZone2 {
+  left: 0px;
+  border-right-color: #FFF;
+}
+.weAre,
+.ourGoals,
+.whyTrustUs {
+  position: relative;
+}
+.margin-b-30 {
+  margin-bottom: 30px;
+}
+.margin-l-10 {
+  margin-left: 10px;
+}
+.menu-mobile {
+  background-color: #FFF;
+  padding: 15px 15px;
+}
+.menu-content {
+  height: 37px;
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+}
+.menu-btn {
+  width: 22px;
+  line-height: 43px;
+}
+.note {
+  width: 24px;
+  position: relative;
+  top: 5px;
+}
+.note div {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  line-height: 14px;
+  text-align: center;
+  color: #FFF;
+  background-color: #6ebd44;
+  border: 1px solid #FFF;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  font-size: 8px;
+  font-family: 'Nunito';
+}
+.note img {
+  position: absolute;
+  top: 2px;
+  display: inline;
+
+}
+.user-img {
+  width: 37px;
+  height: 36px;
+  position: absolute;
+  right: 0px;
+}
+@media screen and (max-width: 1174px) and (min-width: 768px){
+  .content-of-ourgoals,
+  .content-of-weare,
+  .content-of-whytrustus {
+    width: 728px;
+    margin: 0 auto;
+  }
+  .whiteZone {
+    width: calc(50% - 364px);
+  }
+  .img1,
+  .img3 {
+    margin-left: 120px;
+  }
+  .img2 {
+    margin-right: 120px;
+  }
+  footer {
+    padding: 22px;
+  }
+
+}
+@media screen and (max-width: 1400px) and (min-width: 1014px){
+  .content-of-ourgoals,
+  .content-of-weare,
+  .content-of-whytrustus {
+    width: 994px;
+  }
+  .whiteZone {
+    width: calc(50% - 497px);
+  }
+}
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  .content-of-weare h2,
+  .content-of-ourgoals h2,
+  .content-of-whytrustus h2 {
+    font-size: 18px;
+  }
+  .content-of-weare h3,
+  .content-of-ourgoals h3,
+  .content-of-whytrustus h3 {
+    font-size: 14px;
+  }
+  .content-of-weare,
+  .content-of-ourgoals,
+  .content-of-whytrustus {
+    display: block;
+    width: 250px;
+  }
+  .whiteZone {
+    bottom: 0;
+    height: 106px;
+    width: calc(50% - 125px);
+  }
+
+  .margin-0-auto {
+    margin: 0 auto;
+  }
+  .img1,
+  .img2,
+  .img3 {
+    width: 226px;
+    height: 108px;
+    box-sizing: border-box;
+  }
+  .img1 {
+    padding-left: 32px;
+    padding-top: 14px;
+    padding-bottom: 15px;
+    padding-right: 81px;
+    margin-left: calc(100% - 226px);
+    border-radius: 53px 0 0 53px;
+  }
+  .img2 {
+    border-radius: 0px 53px 53px 0px;
+    text-align: right;
+    padding: 6px 27px 6px 0px;
+  }
+  .img2 img {
+    display: inline;
+  }
+  .img3 {
+    margin-left: calc(100% - 226px);
+    border-radius: 53px 0px 0px 53px;
+    padding: 8px 0px 8px 36px;
+  }
+  .displayNone-mobile {
+    display: block;
+  }
+  .displayNone {
+    display: none;
+  }
+  footer .uls ul li a,
+  footer .links span  {
+    font-size: 10px;
+  }
+  footer {
+    padding: 10px;
+  }
+  footer .uls ul:first-child {
+    margin-right: 9px;
+  }
+  footer .icons a i {
+    width: 19px;
+    height: 19px;
+    line-height: 19px;
+    font-size: 11px;
+  }
+  .all-right-reserved {
+    font-size: 7px;
+    text-align: right;
+    margin-top: 0px;
+  }
+  footer .right-side {
+    text-align: right;
+    position: relative;
+  }
+  footer .right-side .displayNone-mobile {
+    display: inline;
+  }
+  footer .icons {
+    width: 100px;
+    right: 0px;
+    position: relative;
+    margin-top: 17px;
+    margin-bottom: 11px;
+  }
+  footer ul li {
+    padding-top: 3px;
+    font-family: "Open sans";
+  }
+  footer .icons a i {
+    border-width: 1px;
+  }
+}
+@media screen and (min-width: 871px){
+  .menu-mobile {
+    display: none;
+  }
+  .totalLogin {
+    width: 100%;
+  }
+  .bodyLogin app-sidenav {
+    width: 160px;
+  }
+}
+@media screen and (max-width: 870px) {
+  .totalLogin {
+    width: 100%;
+  }
+  app-sidenav {
+    width: 0px;
+  }
+}

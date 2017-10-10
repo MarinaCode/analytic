@@ -1,0 +1,165 @@
+<div class="container">
+  <div class="container-block">
+    <div class="container-header">
+      <div class="text">
+        <h3>Dashboard</h3>
+        <div >
+          <a routerLink="/dashboard">Dashboard</a> / <a routerLink="/dashboard">Dashboard</a>
+        </div>
+      </div>
+      <button md-raised-button (click)="demo();">Start tour</button>
+    </div>
+    <!--<div class="sidenav">-->
+      <!--<div class="left-container-block">-->
+        <!--<md-card>-->
+          <!--<md-card-title>-->
+              <!--<span class="md-headline" >{{ 'MAD_MY_ACCOUNT' | translate }}</span>-->
+          <!--</md-card-title>-->
+          <!--<md-card-content>-->
+           <!--<div class="info" data-step = "1" data-intro="My Account">-->
+             <!--<div class="image-block">-->
+               <!--<img src="{{image}}" alt="">-->
+             <!--</div>-->
+             <!--<div class="information" >-->
+               <!--<h2>{{ 'MAD_HELLO' | translate }} {{ name }}</h2>-->
+             <!--<div class="col"><p>{{ 'MAD_WELCOME' | translate }}</p></div>-->
+               <!--<a [routerLink]="['/account',id]">{{ 'MAD_VIEW_ACCOUNT' | translate }}</a>-->
+             <!--</div>-->
+           <!--</div>-->
+          <!--</md-card-content>-->
+          <!--<md-card-actions layout="row" layout-align="end center">-->
+          <!--</md-card-actions>-->
+        <!--</md-card>-->
+        <!--<md-card>-->
+          <!--<md-card-title>-->
+            <!--<span class="md-headline">{{ 'MAD_MY_SUBSCRIPTION' | translate }}</span>-->
+          <!--</md-card-title>-->
+          <!--<md-card-content data-stp = "3" data-intro="Placeholderi texte - See the list of your subscriptions, credits, user details and ranks to track.">-->
+          <!--<div class="col"><span>{e{ 'MAD_MY_SUBSCRIPTION' | translate }} Your active plan</span><span><strong>Demos</strong></span></div>-->
+            <!--<div class="col"><span>Credits</span><span>0</span></div>-->
+            <!--<div class="col"><span>Ranks to track</span><span>0</span></div>-->
+            <!--<div class="col"><span>Users</span><span>1/1</span></div>-->
+          <!--</md-card-content>-->
+          <!--<md-card-actions layout="row" layout-align="end center">-->
+          <!--</md-card-actions>-->
+        <!--</md-card>-->
+      <!--</div>-->
+      <!--<div class="right-container-block">-->
+        <!--<div class="col">-->
+         <!--<md-card>-->
+          <!--<md-card-title data-step = "2" data-intro="Access your page analysis in details">-->
+              <!--<a routerLink="/page-analysis" class="md-headline">{{ 'MAD_PAGE_ANALYSIS' | translate }}</a>-->
+          <!--</md-card-title>-->
+          <!--<md-card-content>-->
+            <!--<i>{{ 'MAD_PAGE_ANALYSIS_LIST' | translate }}</i>-->
+          <!--</md-card-content>-->
+          <!--<md-card-actions layout="row" layout-align="end center">-->
+          <!--</md-card-actions>-->
+        <!--</md-card>-->
+        <!--<md-card>-->
+          <!--<md-card-title data-step = "3" data-intro="Compare couple of websites with yours">-->
+              <!--<a routerLink="/site-vs-site"  class="md-headline">{{ 'MAD_SITE_VS_SITE' | translate }}</a>-->
+          <!--</md-card-title>-->
+          <!--<md-card-content>-->
+            <!--<p>-->
+              <!--{{ 'MAD_SITE_VS_SITE_CONTEXT' | translate }}-->
+            <!--</p>-->
+          <!--</md-card-content>-->
+          <!--<md-card-actions layout="row" layout-align="end center">-->
+          <!--</md-card-actions>-->
+        <!--</md-card>-->
+      <!--</div>-->
+        <!--<div class="col">-->
+          <!--<md-card>-->
+            <!--<md-card-title data-step = "4" data-intro="Plagiarism Checker is a highly developed logic system, that checks billions of online documents and texts in order to detect duplicated texts and find out how unique your texts are.">-->
+              <!--<a  routerLink="/checker"   class="md-headline">{{ 'MAD_PLAGIARISM' | translate }}</a>-->
+            <!--</md-card-title>-->
+            <!--<md-card-content>-->
+              <!--<p>{{ 'MAD_CHECKER_CONTEXT' | translate }} </p>-->
+            <!--</md-card-content>-->
+            <!--<md-card-actions layout="row" layout-align="end center">-->
+            <!--</md-card-actions>-->
+          <!--</md-card>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+    <div class="sidenav">
+      <div class="left-container-block">
+        <md-card class="activity">
+          <md-card-title>
+            <span> {{ this.userRole }}</span>
+            <span class="user-icon"></span>
+          </md-card-title>
+          <md-card-content>
+            <p>User activity plan</p>
+          </md-card-content>
+        </md-card>
+        <md-card class="balance">
+          <md-card-title>
+            <div class="text">
+              <p>Page Analyze balance <span>{{ seoBalance }} / {{ pageAnalyzeBalance }}</span></p>
+              <p>Plagiarism Cheker balance <span>{{ checkerBalance }} / {{ plagiarismCheckerBalance }} </span></p>
+            </div>
+            <span class="balance-icon"></span>
+          </md-card-title>
+          <md-card-content>
+            <p>Balance</p>
+          </md-card-content>
+        </md-card>
+        <md-card class="updates">
+          <md-card-title>
+            <div class="text">
+              <p><i>New!</i> We updated the Rank tracking report. <span>01 feb 2017</span></p>
+              <p><i>Soon!</i> We updated the Backlink analysis report. <span>01 feb 2017</span></p>
+            </div>
+            <span class="updates-icon"></span>
+          </md-card-title>
+          <md-card-content>
+            <p>Updates</p>
+          </md-card-content>
+        </md-card>
+      </div>
+      <div class="right-container-block">
+        <md-card>
+          <div class="text-block">
+            <span class="analysis-icon"></span>
+            <h2>{{ 'MAD_PAGE_ANALYSIS_SIDENAV' | translate }}</h2>
+            <h3 class="info" data-step = "1" data-intro="Page Analysis">{{ 'MAD_PAGE_ANALYSIS' | translate }}</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+              when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+              It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
+            <a routerLink="/page-analysis">Open</a>
+          </div>
+          <div class="image-block">
+            <img src="../../assets/main/graf1.png" alt="">
+          </div>
+        </md-card>
+        <md-card>
+          <div class="text-block">
+            <span class="checker-icon"></span>
+            <h2>{{ 'MAD_PLAGIARISM_CHECKER' | translate }}</h2>
+            <h3 class="info" data-step = "2" data-intro="Analyze thousands of pages">Analyze thousands of pages</h3>
+            <p>{{ 'MAD_CHECKER_CONTEXT' | translate }}</p>
+            <a routerLink="/checker">Open</a>
+          </div>
+          <div class="image-block">
+            <img src="../../assets/main/graf2.png" alt="">
+          </div>
+        </md-card>
+        <md-card>
+          <div class="text-block">
+            <span class="site-icon"></span>
+            <h2>{{ 'MAD_SITE_VS_SITE' | translate }}</h2>
+            <h3 class="info" data-step = "3" data-intro="Discover your real position">Discover your real position</h3>
+            <p> {{ 'MAD_SITE_VS_SITE_CONTEXT' | translate }} </p>
+            <h4>Coming Soon!</h4>
+          </div>
+          <div class="image-block">
+            <img src="../../assets/main/graf3.png" alt="">
+          </div>
+        </md-card>
+      </div>
+    </div>
+    <app-footer></app-footer>
+  </div>
+  </div>

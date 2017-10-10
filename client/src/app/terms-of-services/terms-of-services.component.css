@@ -1,0 +1,203 @@
+.bodyLogin {
+  display: flex;
+  overflow-x: hidden;
+}
+.totalLogin {
+  position: relative;
+  margin-top: 64px;
+}
+h1,
+h2,
+p {
+  margin: 0;
+}
+.TermsLogin {
+  height: 61px;
+  background-color: #eaecf1;
+  color: #99999a;
+  font-family: "Open sans";
+  padding: 15px;
+  box-sizing: border-box;
+}
+.page-name {
+  font-size: 20px;
+  color: #99999a;
+  line-height: 20px;
+}
+.page-home,
+.page-this {
+  color: #99999a;
+  text-decoration: none;
+  font-size: 10px;
+}
+.page-name + div {
+  line-height: 10px;;
+}
+.page-home + span {
+  font-size: 10px;
+}
+
+.TermsLogout {
+  height: 175px;
+  background-color: #2a5166;
+  color: #FFF;
+  text-align: center;
+  position: relative;
+  padding-top: 90px;
+  box-sizing: border-box;
+}
+h1 {
+  font-size: 48px;
+}
+.greenLine {
+  position: absolute;
+  width: calc(50% - 210px);
+  height: 1px;
+  background-color: #6cc421;
+  bottom: 45px;
+}
+.greenLine1 {
+  left: 0;
+}
+.greenLine2 {
+  right: 0;
+}
+.main-terms{
+  padding-left: 30px;
+  background-color: #f7f8f9;
+  padding-top: 21px;
+  padding-right: 30px;
+}
+main {
+  margin: 0 auto;
+  max-width: 1270px;
+}
+.section-terms h2 {
+  font-family: "Open sans";
+  font-size: 18px;
+  color: #2c5770;
+  margin-bottom: 5px;
+}
+.section-terms h2 {
+  margin-top: 18px;
+}
+main section:first-child h2 {
+  margin-top: 0;
+}
+.section-terms p {
+  font-family: "Open sans";
+  font-size: 14px;
+  color: #626262;
+  font-weight: 600;
+  padding-bottom: 20px;
+}
+.middleLine {
+  max-width: 767px;
+  height: 1px;
+  margin: 0 auto;
+  background-color: #bac7d0;
+}
+.menu-mobile {
+  background-color: #FFF;
+  padding: 15px 15px;
+}
+.menu-content {
+  height: 37px;
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+}
+.menu-btn {
+  width: 22px;
+  line-height: 43px;
+}
+.note {
+  width: 24px;
+  position: relative;
+  top: 5px;
+}
+.note div {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  line-height: 14px;
+  text-align: center;
+  color: #FFF;
+  background-color: #6ebd44;
+  border: 1px solid #FFF;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  font-size: 8px;
+  font-family: 'Nunito';
+}
+.note img {
+  position: absolute;
+  top: 2px;
+  display: inline;
+
+}
+.user-img {
+  width: 37px;
+  height: 36px;
+  position: absolute;
+  right: 0px;
+}
+.menu-mobile {
+  display: none;
+}
+@media screen and (min-height: 650px) {
+  .main-terms {
+    min-height: calc(100vh - 377px);
+  }
+  .main-terms-logout {
+    min-height: calc(100vh - 327px);
+  }
+}
+@media screen and (min-width: 871px) {
+  .totalLogin {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 870px) {
+  .menu-mobile {
+    display: block;
+  }
+  .main-terms-logout {
+    min-height: calc(100vh - 351px);
+  }
+}
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  .TermsLogout {
+    padding-top: 90px;
+    height: 155px;
+  }
+  .content {
+    min-height: calc(100vh - 263px);
+  }
+  .img-note {
+    text-align: center;
+    padding-bottom: 30px;
+    box-sizing: border-box;
+  }
+  .TermsLogout h1 {
+    font-size: 24px;
+  }
+
+  .greenLine {
+    width: calc(50% - 110px);
+  }
+  .section-terms h2 {
+    font-size: 16px;
+  }
+
+  .section-terms p {
+    font-size: 12px;
+  }
+}
+@media screen and (min-width: 769px) {
+  .img-note {
+    display: none;
+  }
+}

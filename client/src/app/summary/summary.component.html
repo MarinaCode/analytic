@@ -1,0 +1,19 @@
+<div class="tab-body summary tab-body-summary">
+  <md-card>
+    <md-card-title>
+      <p>General overview</p>
+      <p>Priorities to solve <span>{{problematicData.length}}</span></p>
+      <div></div>
+    </md-card-title>
+    <md-card-content>
+      <table>
+        <tr *ngFor="let problem of problematicData">
+          <md-checkbox [checked]="true" align="start">
+            {{problem}}
+          </md-checkbox>
+        </tr>
+      </table>
+    </md-card-content>
+  </md-card>
+  <chart [options]="options"></chart>
+</div>

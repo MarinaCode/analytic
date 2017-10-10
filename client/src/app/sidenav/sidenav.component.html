@@ -1,0 +1,32 @@
+<!--<button md-raised-button *ngIf="isShow" class="md-raised md-primary sidenavtoggle" #mybutton (click)="left.toggle()"></button>
+<input type="checkbox" *ngIf="isShow" id="sidenav">
+<label for="sidenav" *ngIf="isShow" class="sidenav-bar sidenavtoggle"></label>-->
+<md-sidenav-layout class="sidenav" *ngIf="isShow" >
+  <md-sidenav #left (open)="mybutton.focus()" [opened]="true" mode="side" layout-padding>
+    <nav class="dashboard-nav">
+      <div class="navigation">
+        <ul class="first-list">
+          <li class="logo">
+          <span class="image-block">
+            <a routerLink="/dashboard"><img src="../../assets/main/backend-logo.png" alt=""></a>
+          </span>
+          </li>
+          <li class="author-info">
+            <span class="image-block sidenav-image-block">
+              <img src="{{ image }}" alt="">
+            </span>
+              <h3>{{ name }}</h3>
+              <p>Developer</p>
+          </li>
+          <li><a class="" (click)="active($event)" routerLink="/dashboard" routerLinkActive="active"><i class="dashbord-icon"></i> {{ 'MAD_MY_DASHBOARD' | translate }}</a></li>
+          <li *ngIf="localStorage.getItem('currentUser')&& JSON.parse(localStorage.getItem('currentUser')).role!=2"><a routerLink="/account" routerLinkActive="active"><i class="profile-icon"></i> {{ 'MAD_MY_ACCOUNT' | translate }} </a></li>
+          <li><a routerLink="/checker" routerLinkActive="active"><i class="checker-icon"></i> {{ 'MAD_PLAGIARISM_CHECKER' | translate }} </a></li>
+          <li><a routerLink="/page-analysis" routerLinkActive="active"> <i class="analyze-icon"></i>{{'MAD_PAGE_ANALYSIS_SIDENAV' | translate}} </a></li>
+          <li><a routerLink="/site-vs-site" routerLinkActive="active"> <i class="site-vs-site"></i>{{'MAD_SITE_VS_SITE' | translate}} </a></li>
+          <li><a routerLink="/pricing" routerLinkActive="active"> <i class="pricing-icon"></i> Pricing </a></li>
+          <li><a routerLink="/settings" routerLinkActive="active"> <i class="settings-icon"></i> Settings </a></li>
+        </ul>
+      </div>
+    </nav>
+  </md-sidenav>
+</md-sidenav-layout>

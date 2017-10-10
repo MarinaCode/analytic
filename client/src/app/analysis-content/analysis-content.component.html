@@ -1,0 +1,229 @@
+<md-card>
+  <md-card-title><p>Content overview</p></md-card-title>
+  <md-card-content>
+    <div class="card-content">
+      <table class="content-overview-table" cellpadding="0" cellspacing="0">
+        <tr>
+          <td colspan="3">Content Overview</td>
+        </tr>
+        <tr>
+          <td colspan="3">Ratio text/code</td>
+        </tr>
+        <tr>
+          <td>
+            Quantity of keywords
+          </td>
+          <td>
+            <div class="diagram">
+              <div class="diagram1" #diagram5></div>
+            </div>
+          </td>
+          <td><p>{{ contentScore.percentsInText }}% of text in the page.</p></td>
+        </tr>
+        <tr>
+          <td>
+            Keyword repetition
+          </td>
+          <td>
+            <div class="diagram">
+              <div class="diagram2" #diagram6></div>
+            </div>
+          </td>
+          <td><p>{{ contentScore.quantityKeyword }} keywords.</p></td>
+        </tr>
+        <tr>
+          <td>
+            Keyword repetition
+          </td>
+          <td>
+            <div class="diagram">
+              <div class="diagram3" #diagram7></div>
+            </div>
+          </td>
+          <td><p>{{ contentScore.keywordRepetition }} unique keywords on {{ contentScore.keywordsCounts }} keywords</p></td>
+        </tr>
+      </table>
+      <div class="left-card-content">
+        <div class="image-block">
+            <app-cloud [cloudData]='cloudData'></app-cloud>
+        </div>
+      </div>
+      <!--<div class="right-card-content">
+        <div>
+          <h3>Ratio text/code</h3>
+          <p>{{ contentScore.percentsInText }}% of text in the page.</p>
+          <div class="horizontalcursor item1"><span></span><i></i></div>
+          <h3>Quantity of keywords</h3>
+          <p>{{ contentScore.quantityKeyword }} keywords.</p>
+          <div class="horizontalcursor item2"><span></span><i></i></div>
+          <h3>Keyword repetition</h3>
+          <p>{{ contentScore.keywordRepetition }} unique keywords on {{ contentScore.keywordsCounts }} keywords</p>
+          <div class="horizontalcursor item3"><span></span><i></i></div>
+        </div>
+      </div>-->
+    </div>
+  </md-card-content>
+</md-card>
+<md-card>
+  <md-card-title>Content performance</md-card-title>
+  <md-card-content>
+    <ul class="card-list">
+      <li [ngClass]="[contentScore.percentsInTextClass == 0 ? 'valid' : (contentScore.percentsInTextClass == 1 ? 'warning' : 'critical')]">
+        <div class="left-side"><p><span></span>Text/code ratio</p></div>
+        <div class="right-side">
+          <div class="infoBlock">
+            <img src="../../assets/main/information_icon.png" class="infoIcon"/>
+            <p class="informationBlock">Between 140 and 170 characters (spaces included) are advised. The meta description tag is read by search engines and is
+              displayed in SERPs. This tag describes the page content without being a straight forward list of keywords and must contain
+              the most important keywords of the page. Ensure that each of your web pages has a unique meta description.
+              The meta description tag should appear after the title tag inside the head tag.</p>
+          </div>
+          <div class="right-side-block">
+            <p class="title">Text/Code ratio is too low.</p>
+            <p><i>{{ contentScore.percentsInText }}%</i> of your page content is text type.</p>
+          </div>
+        </div>
+      </li>
+      <li  [ngClass]="[contentScore.countInfoClass == 0 ? 'valid' : (contentScore.countInfoClass == 1  ? 'warning' : 'critical')]">
+        <div class="left-side"><p><span></span>Titles</p></div>
+        <div class="right-side">
+          <div class="infoBlock">
+            <img src="../../assets/main/information_icon.png" class="infoIcon"/>
+            <p class="informationBlock">Between 140 and 170 characters (spaces included) are advised. The meta description tag is read by search engines and is
+              displayed in SERPs. This tag describes the page content without being a straight forward list of keywords and must contain
+              the most important keywords of the page. Ensure that each of your web pages has a unique meta description.
+              The meta description tag should appear after the title tag inside the head tag.</p>
+          </div>
+          <div class="right-side-block">
+            <table class="tag-list">
+              <tr>
+                <td>h1</td>
+                <td>h2</td>
+                <td>h3</td>
+                <td>h4</td>
+                <td>h5</td>
+                <td>h6</td>
+              </tr>
+              <tr>
+                <td>{{contentScore.countInfo.h1Count}}</td>
+                <td>{{contentScore.countInfo.h2Count}}</td>
+                <td>{{contentScore.countInfo.h3Count}}</td>
+                <td>{{contentScore.countInfo.h4Count}}</td>
+                <td>{{contentScore.countInfo.h5Count}}</td>
+                <td>{{contentScore.countInfo.h6Count}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </li>
+      <li [ngClass]="[contentScore.microdataArrayClass == 0 ? 'valid' : 'critical']">
+        <div class="left-side"><p><span></span>Microdata</p></div>
+        <div class="right-side">
+          <div class="infoBlock">
+            <img src="../../assets/main/information_icon.png" class="infoIcon"/>
+            <p class="informationBlock">Between 140 and 170 characters (spaces included) are advised. The meta description tag is read by search engines and is
+              displayed in SERPs. This tag describes the page content without being a straight forward list of keywords and must contain
+              the most important keywords of the page. Ensure that each of your web pages has a unique meta description.
+              The meta description tag should appear after the title tag inside the head tag.</p>
+          </div>
+          <div class="right-side-block">
+            <p class="title" *ngIf="contentScore.microdataArray">Website uses Microdata</p>
+            <p class="title" *ngIf="!contentScore.microdataArray">Microdata is not used.</p>
+            <table class="type-list">
+              <tr><td>Type</td></tr>
+              <tr  *ngFor="let micro of contentScore.microdataArray"><td>{{micro}}</td></tr>
+            </table>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </md-card-content>
+</md-card>
+<md-card>
+  <md-card-title>Keywords</md-card-title>
+  <md-card-content>
+    <ul class="card-list">
+      <li [ngClass]="[contentScore.titleCohanceClass == 0 ? 'valid' : 'critical']">
+        <div class="left-side"><p><span></span>Title coherence</p></div>
+        <div class="right-side">
+          <div class="infoBlock">
+            <img src="../../assets/main/information_icon.png" class="infoIcon"/>
+            <p class="informationBlock">Between 140 and 170 characters (spaces included) are advised. The meta description tag is read by search engines and is
+              displayed in SERPs. This tag describes the page content without being a straight forward list of keywords and must contain
+              the most important keywords of the page. Ensure that each of your web pages has a unique meta description.
+              The meta description tag should appear after the title tag inside the head tag.</p>
+          </div>
+          <div class="right-side-block">
+            <p><i>19</i>  of <i> 20</i>  title keywords appear in main keywords.</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="left-side"><p><span></span>Keywords density</p></div>
+        <div class="right-side">
+          <div class="infoBlock">
+            <img src="../../assets/main/information_icon.png" class="infoIcon"/>
+            <p class="informationBlock">Between 140 and 170 characters (spaces included) are advised. The meta description tag is read by search engines and is
+              displayed in SERPs. This tag describes the page content without being a straight forward list of keywords and must contain
+              the most important keywords of the page. Ensure that each of your web pages has a unique meta description.
+              The meta description tag should appear after the title tag inside the head tag.</p>
+          </div>
+          <div class="right-side-block">
+            <p *ngIf="keywordCountArray1.length ">Your page contains <i>20</i> exploitable keywords and <i>30</i> single keywords</p>
+            <button md-button (click)="show($event)" >See Keywords</button>
+            <div style="display: none;">
+              <table class="attribute">
+                <tr>
+                  <td>Name</td>
+                  <td>Value</td>
+                  <td>Density</td>
+                </tr>
+                <tr *ngFor="let key1 of keyword1All">
+                  <td>{{ key1.name }}</td>
+                  <td>{{ key1.value }}</td>
+                  <td>{{ key1.density }}%</td>
+                </tr>
+              </table>
+              <app-pagination [limit]="limit" [sitesCount]="10" (pageChange)="onNavigateKeyword1($event)"></app-pagination>
+              <table class="attribute">
+                <tr>
+                  <td>Name</td>
+                  <td>Value</td>
+                  <td>Density</td>
+                </tr>
+                <tr *ngFor="let key2 of keyword2All">
+                  <td>{{ key2.name }}</td>
+                  <td>{{ key2.value }}</td>
+                  <td>{{ key2.density }}%</td>
+                </tr>
+              </table>
+              <app-pagination [limit]="limit" [sitesCount]="10" (pageChange)="onNavigateKeyword2($event)"></app-pagination>
+
+              <table class="attribute">
+                <tr>
+                  <td>Name</td>
+                  <td>Value</td>
+                  <td>Density</td>
+                </tr>
+                <tr *ngFor="let key3 of keyword3All">
+                  <td>{{ key3.name }}</td>
+                  <td>{{ key3.value }}</td>
+                  <td>{{ key3.density }}%</td>
+                </tr>
+              </table>
+              <app-pagination [limit]="limit" [sitesCount]="10" (pageChange)="onNavigateKeyword3($event)"></app-pagination>
+            </div>
+            <div class="link-text">
+              <p class="pageCount">Showing 1 to 6 of entries</p>
+            </div>
+            <div class="previous-next previous-next-links">
+              <div class="previous">Previous</div>
+              <p class="pageNumber">1</p>
+              <div class="next">Next</div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </md-card-content>
+</md-card>

@@ -1,0 +1,227 @@
+<!--<header>-->
+<app-login #log></app-login>
+<input type="checkbox" id="bar" *ngIf="homepage">
+<!--<label for="bar" class="bar" *ngIf="homepage">Bar</label>-->
+<md-toolbar class="header" *ngIf="homepage">
+  <div class="mobile-menu">
+    <div class="mobile-menu-header">
+      <div class="mobile-menu-icon">
+        <img src="../../assets/main/icon.png">
+      </div>
+      <div class="button-block">
+        <button *ngFor="let lang of supportedLangsMobile"
+                (click)="selectLang(lang.value)"
+                class="btn btn-default" [class.btn-primary]="isCurrentLang(lang.value)" (click)="change($event)">
+          {{ lang.display }}
+        </button>
+      </div>
+      <div id="mobile-menu-btn-logout" (click) = "dropLogout($event)" class="mobile-menu-btn">
+        <div #menu_btn_line_1 class="btn-line btn-line-1"></div>
+        <div #menu_btn_line_2 class="btn-line btn-line-2"></div>
+        <div #menu_btn_line_3 class="btn-line btn-line-3"></div>
+      </div>
+    </div>
+    <div id="parent-of-drop-down-logout">
+      <div id="drop-down-logout">
+        <div class="mobile-menu-list">
+          <ul>
+            <li>
+              <a routerLink="/dashboard" (click)="hideMenu($event)">{{ 'MAD_MY_DASHBOARD' | translate }}</a>
+            </li>
+            <li>
+              <a routerLink="/pricing" (click)="hideMenu($event)">{{ 'MAD_PRICING' | translate }}</a>
+            </li>
+            <li>
+              <a routerLink="/blog" (click)="hideMenu($event)">Blog</a>
+            </li>
+            <li>
+              <a routerLink="/" (click)="log.loginPopup(true); hideMenu($event)">{{ 'MAD_LOGIN' | translate }}</a>
+            </li>
+          </ul>
+          <a href="javascript:;" (click)="tryDemo()" class="demo-link">Demo</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav id="homepageNav">
+    <h1 class="page-name">
+      <a href="">
+        <img src="../../assets/main/madcrocs-logo.png" alt="">
+      </a>
+    </h1>
+    <ul>
+      <li class="l-left"><a routerLink="/dashboard" class="menu-btn">{{ 'MAD_MY_DASHBOARD' | translate }}</a></li>
+      <li class="l-left"><a routerLink="/pricing" class="menu-btn">{{ 'MAD_PRICING' | translate }}</a></li>
+      <li class="l-left"><a routerLink="/blog" class="menu-btn">Blog</a></li>
+      <li class="l-left language">
+        <span class="before"></span>
+        <div class="button-block">
+          <button *ngFor="let lang of supportedLangs"
+                  (click)="selectLang(lang.value)"
+                  class="btn btn-default" [class.btn-primary]="isCurrentLang(lang.value)" (click)="change($event)">
+            {{ lang.display }}
+          </button>
+        </div>
+      </li>
+      <li class="l-left"><button md-button (click)="log.loginPopup(true)" *ngIf="!isLogin" class="login-button">{{ 'MAD_LOGIN' | translate }}</button></li>
+      <li class="l-left"><button md-button (click)="log.logout()" *ngIf="isLogin" class="login-button">{{ 'MAD_LOGOUT' | translate }}</button></li>
+      <li class="l-left"><button class="free" (click)="tryDemo()" md-raised-button>Demo</button></li>
+    </ul>
+  </nav>
+</md-toolbar>
+
+<md-toolbar class="header backend" *ngIf="backend">
+  <nav class="nav-login-full-width">
+    <ul>
+      <li class="l-left"><a class="notificaton" (click) ="showNotePage($event)"><span class="score">{{message}}</span></a></li>
+      <li class="l-left"><a class="message" (click) = "showMessagePage($event)"><span class="score">99+</span></a></li>
+      <li class="l-left image">
+        <a href="" class="name">{{ name }}</a>
+        <span class="image-block">
+          <img src="{{ image }}" alt="">
+          <img src="../../assets/main/users.png" alt="" class="userPicDefault">
+        </span>
+        <span class="score-image"></span>
+      </li>
+      <li class="l-left"><button md-button (click)="log.loginPopup(true)" *ngIf="!isLogin" class="login-button">{{ 'MAD_LOGIN' | translate }}</button></li>
+      <li class="l-left login"><span class="login-icon"></span><button md-button (click)="log.logout()" *ngIf="isLogin" class="login-button">{{ 'MAD_LOGOUT' | translate }}</button></li>
+      <li class="l-left language">
+        <span class="before"></span>
+        <div class="button-block">
+          <button *ngFor="let lang of supportedLangs"
+                  (click)="selectLang(lang.value)"
+                  class="btn btn-default" [class.btn-primary]="isCurrentLang(lang.value)" (click)="change($event)">
+            {{ lang.display }}
+          </button>
+        </div>
+      </li>
+    </ul>
+  </nav>
+  <div class="mobile-menu">
+    <div class="mobile-menu-header">
+      <div class="mobile-menu-icon">
+        <img src="../../assets/main/icon.png">
+      </div>
+      <div class="button-block">
+        <button *ngFor="let lang of supportedLangsMobile"
+                (click)="selectLang(lang.value)"
+                class="btn btn-default" [class.btn-primary]="isCurrentLang(lang.value)" (click)="change($event)">
+          {{ lang.display }}
+        </button>
+      </div>
+      <div id="mobile-menu-btn" (click) = "drop($event)" class="mobile-menu-btn">
+        <div #menu_btn_line_1 class="btn-line btn-line-1"></div>
+        <div #menu_btn_line_2 class="btn-line btn-line-2"></div>
+        <div #menu_btn_line_3 class="btn-line btn-line-3"></div>
+      </div>
+    </div>
+    <div id="parent-of-drop-down">
+      <div id="drop-down">
+        <div class="mobile-menu-list">
+          <ul>
+            <li>
+              <a routerLink="/dashboard" (click)="hideMenuLogin($event)">{{ 'MAD_MY_DASHBOARD' | translate }}</a>
+            </li>
+            <li>
+              <a routerLink="/pricing" (click)="hideMenuLogin($event)">{{ 'MAD_PRICING' | translate }}</a>
+            </li>
+            <li>
+              <a routerLink="/blog" (click)="hideMenuLogin($event)">Blog</a>
+            </li>
+            <li>
+              <a routerLink="/" (click)="log.logout()">{{ 'MAD_LOGOUT' | translate }}</a>
+            </li>
+          </ul>
+          <a href="javascript:;" (click)="tryDemo()" class="demo-link">Demo</a>
+        </div>
+        <div class="search-input">
+          <input type="text" value="" placeholder="https://" #url>
+          <div class="search-icon" (click)="check(url.value);"></div>
+        </div>
+        <div class="account">
+          <div class="account-person">
+            <div class="account-user-img" routerLink="/account" (click)="hideMenuLogin($event)">
+              <span class="image-block image-block-mobile">
+                <img src="{{ image }}" alt="">
+                <img src="../../assets/main/users.png" alt="" class="userPicDefault">
+              </span>
+              <p>{{ name }}</p>
+            </div>
+            <div class="account-options">
+              <a href="/"><img src="../../assets/main/icon_setting.png"></a>
+              <img src="../../assets/main/vertical_line.png" class="vertical-line">
+              <a href="/"><img src="../../assets/main/icon_logout.png"></a>
+            </div>
+          </div>
+          <div class="site-options">
+            <div  class="site-options-line-1">
+              <div class="mailbox">
+                <a routerLink="/dashboard" (click)="hideMenuLogin($event)"><img src="../../assets/main/mailbox.png"></a>
+                <p>Mailbox</p>
+              </div>
+              <div class="page-analysis">
+                <a routerLink="/page-analysis" (click)="hideMenuLogin($event)"><img src="../../assets/main/diagram.png"></a>
+                <p>{{'MAD_PAGE_ANALYSIS_SIDENAV' | translate}}</p>
+              </div>
+            </div>
+            <div  class="site-options-line-2">
+              <div class="checker">
+                <a routerLink="/checker" (click)="hideMenuLogin($event)"><img src="../../assets/main/plagiarism_checker.png"></a>
+                <p>{{ 'MAD_PLAGIARISM_CHECKER' | translate }}</p>
+              </div>
+              <div class="site-vs-site">
+                <a routerLink="/site-vs-site" (click)="hideMenuLogin($event)"><img src="../../assets/main/search.png">
+                  <img src="../../assets/main/vector.png" class="vector"></a>
+                <p>{{'MAD_SITE_VS_SITE' | translate}}</p>
+                <span class="coming-soon">Coming Soon</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</md-toolbar>
+
+
+<div *ngIf = "noNotePage" class="notifications">
+  <div class="notificationsPanel">
+    <h3>My Notifications</h3>
+    <div class="NoNewNotifications">
+      <p>No New Notifications!</p>
+    </div>
+  </div>
+  <img (click) = "hideNotePage($event)" src="../../assets/main/close_button.png">
+</div>
+
+
+
+<div *ngIf = "notePage" class="notifications">
+  <div class="notificationsPanel">
+    <h3>YOUR NOTIFICATIONS</h3>
+    <div class="NewNotifications">
+      <ul class="ulNotes">
+        <li>Lorem Ipsum is simply dummy text of the
+          printing and typesetting industry. </li>
+        <li>Lorem Ipsum is simply dummy text of the
+          printing and typesetting industry. </li>
+        <li>Lorem Ipsum is simply dummy text of the
+          printing and typesetting industry. </li>
+      </ul>
+    </div>
+  </div>
+  <img (click) = "hideNotePage($event)" src="../../assets/main/close_button.png">
+</div>
+
+
+<div *ngIf = "noMessagePage" class="messages">
+  <div class="messagesPanel">
+    <h3>YOUR MESSAGES</h3>
+    <div class="NoNewMessages">
+      <p>Messages!</p>
+      <h3>Get and stay connected with us!</h3>
+      <button>Create conversation</button>
+    </div>
+  </div>
+  <img (click) = "hideNotePage($event)" src="../../assets/main/close_button.png">
+</div>

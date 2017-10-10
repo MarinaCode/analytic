@@ -1,0 +1,151 @@
+.card-content .left-card-content .image-block{
+  width: 50%;
+}
+#tagcloud span {
+  display: inline-block;
+  margin: 5px;
+  padding: 5px;
+}
+.content-overview-table {
+  border: 1px solid #e3e7f3;
+  margin: 0 auto;
+  width: 100%;
+  color: #626262;
+  background-color: #FFF;
+  font-size: 14px;
+  margin-bottom: 30px;
+  tr {
+    display: block;
+    padding: 7px 40px;
+    box-sizing: border-box;
+    border: 1px solid #e3e7f3;
+    td {
+      width: 20%;
+      padding: 4px 10px
+    }
+    td:nth-of-type(2) {
+      padding: 0 50px;
+    }
+  }
+  tr:first-child {
+    background-color: #e3e7f3;
+    color: #484747;
+    font-size: 20px;
+  }
+  tr:nth-of-type(2) {
+    color: #6cc422;
+    font-size: 20px;
+    padding: 20px 40px;
+  }
+  .diagram {
+    width: 500px;
+    height: 11px;
+    border-radius: 11px;
+    margin: 0 auto;
+    div {
+      border-radius: 11px;
+      height: 100%;
+    }
+  }
+  .diagram1 {
+    width: 56%;
+    background-color: #f43737;
+    border: 1px solid #f68585;
+  }
+  .diagram2 {
+    width: 25%;
+    background-color: #6cc422;
+    border: 1px solid #ceebb5;
+  }
+  .diagram3 {
+    width: 85%;
+    background-color: #2c5871;
+    border: 1px solid #f5f8f9;
+  }
+}
+.tabs md-card-content .card-content {
+  display: block !important;
+}
+
+.link-text {
+  padding-left: 12px;
+  padding-top: 15px;
+  color: #717171;
+  font-size: 20px;
+  font-family: "Myriad Pro";
+  margin-bottom: 50px;
+}
+.link-text a {
+  text-decoration: none;
+  color: #6cb0fd;
+  font-size: 16px;
+  font-family: "Myriad Pro";
+}
+.link-text p {
+  margin-top: 20px;
+}
+.previous-next {
+  position: absolute;
+  right: 0px;
+  bottom: 50px;
+}
+.previous-next div {
+  background-color: transparent;
+  border: 1px solid #f48c37;
+  padding: 5px 8px;
+  color: #f48c37;
+  border-radius: 2px;
+  font-size: 16px;
+  display: inline-block;
+  font-family: "Nunito Regular";
+  outline: none;
+  cursor: pointer;
+}
+.previous-next p {
+  color: #FFF;
+  border-radius: 2px;
+  font-size: 20px;
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  background-color: #f48c37;
+  line-height: 38px;
+  font-family: "Nunito Regular";
+}
+.previous {
+  position: relative;
+  left: 5px;
+}
+.next {
+  position: relative;
+  right: 5px;
+}
+.pageNumber {
+  margin-right: 0px !important;
+}
+.pageination-control-block {
+  position: relative;
+  .previous-next {
+    bottom: -50px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .previous-next {
+    position: static;
+  }
+}
+@media screen and (max-width: 970px) {
+  .pageCount {
+    display: block !important;
+  }
+}
+@media screen and (max-width: 670px) {
+  .previous-next {
+    position: static;
+  }
+  .link-text {
+    margin-bottom: 20px;
+    padding-left: 0px;
+  }
+}

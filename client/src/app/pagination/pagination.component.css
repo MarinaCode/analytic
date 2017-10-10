@@ -1,0 +1,55 @@
+.row .dataTables_paginate ul li {
+  float: left;
+  text-align: center;
+  line-height: 30px;
+  margin-left: 10px;
+}
+
+ .row .dataTables_paginate ul li a {
+  text-decoration: none;
+  color: #404040;
+  width: 30px;
+  height: 30px;
+  display: block;
+  outline: none;
+  border: 1px solid #d8d8d8;
+}
+
+.row .dataTables_paginate ul li .previous  {
+  background-image: url(../../assets/main/sprite.png);
+  background-position: -6px -237px;
+}
+
+.row .dataTables_paginate ul li .previous:active {
+  background-color: #7ac243;
+  background-position: -50px -265px;
+
+}
+
+.row .dataTables_paginate ul li .next:active {
+  background-color: #7ac243;
+  background-position: -7px -266px;
+}
+
+.row .dataTables_paginate ul li .next  {
+  background-image: url(../../assets/main/sprite.png);
+  background-position: -49px -237px;
+}
+
+.row .dataTables_paginate li.disable a {
+   pointer-events: none;
+   position: relative;
+ }
+
+.row .dataTables_paginate li.disable a:before {
+   content: "";
+   width: 100%;
+   height: 100%;
+   display: block;
+   position: absolute;
+   top: 0;
+   left: 0;
+   background-color: #000;
+   opacity: 0.12;
+ }
+

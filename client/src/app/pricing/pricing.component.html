@@ -1,0 +1,105 @@
+<div class="container">
+  <div class="container-block">
+    <div class="container-header">
+      <h3>{{ 'MAD_PRICING' | translate }}</h3>
+      <div>
+        <a routerLink="/dashboard">Dashboard</a> / <a routerLink="/pricing">{{ 'MAD_PRICING' | translate }}</a>
+      </div>
+    </div>
+    <div class="pricing-table">
+      <div class="pricing-block">
+        <md-card>
+          <div class="pricing-header">
+            <h2 #basic>{{ 'MAD_PAGE_BASIC' | translate }}</h2>
+            <h3><span [ngClass]="{valid: true}"> {{ price }}</span>/{{ 'MAD_PAGE_MONTH' | translate }}</h3>
+            <span class="before"></span>
+          </div>
+          <table>
+            <tbody>
+            <tr>
+              <td>
+                <h4>{{ 'MAD_PAGE_INSTANT_REPORT' | translate }}</h4>
+                <h2> {{ 'MAD_PAGE_NUMBER_OF_WEBSITE' | translate }} </h2>
+                <h3><span> 10 </span> {{ 'MAD_PAGE_PER_DAY' | translate }}  </h3>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h4>{{ 'MAD_PAGE_PLAGIARISM_AND_DUPLICATE' | translate }}</h4>
+                <h2><span> 1000 </span> {{ 'MAD_PAGE_SYMBOLS' | translate }} </h2>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p><a href="">{{ 'MAD_PAGE_VIEW_DETAILS' | translate }}</a></p>
+                <button md-raised-button [ngClass]="{valid: true}"><a href="https://www.2checkout.com/checkout/purchase?sid=901347012&quantity=1&product_id=5&fixed=Y">{{ 'MAD_PAGE_BUY_NOW' | translate }}</a></button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </md-card>
+        <md-card>
+          <div class="pricing-header">
+            <h2 #basic>{{ 'MAD_PAGE_STANDARD' | translate }}  </h2>
+            <h3><span [ngClass]="{warning: true}"> {{ price }}</span>/{{ 'MAD_PAGE_MONTH' | translate }}</h3>
+            <span class="before"></span>
+          </div>
+          <table>
+            <tbody>
+            <tr>
+              <td>
+                <h4>{{ 'MAD_PAGE_INSTANT_REPORT' | translate }}</h4>
+                <h2> {{ 'MAD_PAGE_NUMBER_OF_WEBSITE' | translate }} </h2>
+                <h3><span> 15 </span> {{ 'MAD_PAGE_PER_DAY' | translate }} </h3>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h4> {{ 'MAD_PAGE_PLAGIARISM_AND_DUPLICATE' | translate }} </h4>
+                <h2><span> 2000 </span> {{ 'MAD_PAGE_SYMBOLS' | translate }} </h2>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p><a href="">{{ 'MAD_PAGE_VIEW_DETAILS' | translate }}</a></p>
+                <button md-raised-button [ngClass]="{warning: true}">{{ 'MAD_PAGE_BUY_NOW' | translate }}</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </md-card>
+        <md-card>
+          <div class="pricing-header">
+            <h2 #basic> Premium  </h2>
+            <h3><span [ngClass]="{critical: true}"> {{ price }}</span>/{{ 'MAD_PAGE_MONTH' | translate }}</h3>
+            <span class="before"></span>
+          </div>
+          <table>
+            <tbody>
+            <tr>
+              <td>
+                <h4>{{ 'MAD_PAGE_INSTANT_REPORT' | translate }}</h4>
+                <h2>{{ 'MAD_PAGE_NUMBER_OF_WEBSITE' | translate }} </h2>
+                <h3><span>20</span> {{ 'MAD_PAGE_PER_DAY' | translate }} </h3>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h4>{{ 'MAD_PAGE_PLAGIARISM_AND_DUPLICATE' | translate }}</h4>
+                <h2><span> 5000 </span> {{ 'MAD_PAGE_SYMBOLS' | translate }} </h2>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p><a href="">{{ 'MAD_PAGE_VIEW_DETAILS' | translate }}</a></p>
+                <button md-raised-button [ngClass]="{critical: true}">{{ 'MAD_PAGE_BUY_NOW' | translate }} </button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </md-card>
+      </div>
+    </div>
+    <app-footer></app-footer>
+  </div>
+</div>
