@@ -1,0 +1,124 @@
+{
+  "local":{
+    "server":{
+      "host": "localhost",
+      "port": 3000
+    },
+    "hostname":"http://localhost:3000",
+    "secret": "2kYD8O4AVJHlp5aZsX2zUM7iXnIqezgs",
+    "clients":[
+      {
+        "username" : "vrs-admin",
+        "password" : "7PwTZb5sgMjA",
+        "role":"admin"
+      },
+      {
+        "username" : "vrs-client",
+        "password" : "7PwTZb5sgMjA",
+        "role":"user"
+      }
+    ],
+    "database-configuration": {
+      "host": "localhost",
+      "user": "root",
+      "pass": "",
+      "name": "analytic"
+    },
+    "services":{
+      "reCaptcha":{
+        "secret":"6LeDPSITAAAAAPNNhInGzTni3-HBsvhVS2ou6DwN"
+      },
+      "mail":{
+        "host":"http://localhost:4200",
+        "hostname":"smtp.gmail.com",
+        "user":"mail.test.server485@gmail.com",
+        "pass":"test123456789",
+        "protocol":"smtps",
+        "from":"Analytics Test <no-reply@analytic.com>"
+      }
+    }
+  },
+  "development":{
+    "server":{
+      "host": "localhost",
+      "port": 3000
+    },
+    "hostname":"http://api.qyach.com",
+    "image_origin":"http://qyach.com/public/images",
+    "secret": "2kYD8O4AVJHlp5aZsX2zUM7iXnIqezgs",
+    "clients":[
+      {
+        "username" : "vrs-admin",
+        "password" : "7PwTZb5sgMjA",
+        "role":"admin"
+      },
+      {
+        "username" : "vrs-client",
+        "password" : "7PwTZb5sgMjA",
+        "role":"user"
+      }
+    ],
+    "database-configuration": {
+      "host": "localhost",
+      "user": "root",
+      "pass": "",
+      "name": "analytic"
+    },
+    "services":{
+      "reCaptcha":{
+        "secret":"6LfGeyITAAAAAA1MQcCHG2NIDM_WsicAoCvjgu2S"
+      },
+      "mail":{
+        "port":26,
+        "host":"http://qyach.com",
+        "hostname":"mail.qyach.com",
+        "user":"no-reply@qyach.com",
+        "pass":"1hR8f2xp]z9W;3",
+        "protocol":"smtp",
+        "from":"Analytics Test <no-reply@analytic.com>"
+      }
+    }
+  },
+
+  "production":{
+    "server":{
+      "host": "localhost",
+      "port": 3000
+    },
+    "hostname":"https://api.vrstatus.com",
+    "image_origin":"http://localhost:8000/public/images",
+    "secret": "2kYD8O4AVJHlp5aZsX2zUM7iXnIqezgs",
+    "clients":[
+      {
+        "username" : "vrs-admin",
+        "password" : "7PwTZb5sgMjA",
+        "role":"admin"
+      },
+      {
+        "username" : "vrs-client",
+        "password" : "7PwTZb5sgMjA",
+        "role":"user"
+      }
+    ],
+    "database" : {
+      "mongodb" :{
+        "url":"mongodb://localhost:27017/store"
+      }
+    },
+    "services":{
+      "reCaptcha":{
+        "secret":"6LfGeyITAAAAAA1MQcCHG2NIDM_WsicAoCvjgu2S"
+      },
+      "mail":{
+        "port":25,
+        "host":"https://vrstatus.com",
+        "hostname":"mail.vrstatus.com",
+        "user":"no-reply@vrstatus.com",
+        "pass":"1hR8f2xp]z9W;3",
+        "protocol":"smtp",
+        "from":"Analytics Test <no-reply@analytic.com>"
+      }
+    }
+  }
+
+}
