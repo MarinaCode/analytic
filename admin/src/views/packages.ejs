@@ -1,0 +1,51 @@
+
+<% include layout/head.ejs %>
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <% include layout/nav.ejs%>
+        <% include layout/sidenav.ejs %>
+    </nav>
+
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header"> Packages </h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>Title</th>
+                                <th>Price</th>
+                                <th>Checker Tries</th>
+                                <th>Seo Tries</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <%  packages.forEach(function (package) { %>
+                                <tr>
+                                    <td><a href = "#"><%- package.id %> </a></td>
+                                    <td><%- package.title %></td>
+                                    <td><%- package.price %></td>
+                                    <td><%- package.checkerTries %></td>
+                                    <td><%- package.seoTries %></td>
+                                </tr>
+                                <% }) %>
+                             </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /#page-wrapper -->
+</div>
+<% include layout/footer.ejs %>

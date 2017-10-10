@@ -1,0 +1,66 @@
+
+<% include layout/head.ejs %>
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <% include layout/nav.ejs%>
+        <% include layout/sidenav.ejs %>
+    </nav>
+
+    <div id="page-wrapper">
+        <div class="panel-body">
+           <button type="button" class="btn btn-primary"><a href ="/newBlog">New Blog</a></button>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header"> Blogs </h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="table-responsive">
+                        <% if(blogs.length > 0) {%>
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Author</th>
+                                <th>Date</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+
+                            <tbody id="posts">
+                                <%  blogs.forEach(function (blog) { %>
+                                <tr>
+                                    <td><a href = "#"><%- blog.id %> </a></td>
+                                    <td><%- blog.title %></td>
+                                    <td><%- blog.description %></td>
+                                    <td><%- blog.author %></td>
+                                    <td><%- blog.date %></td>
+                                    <td>
+                                        <div class="panel-body">
+                                            <button type="button" class="btn btn-warning btn-circle" onclick="removePost(<%- blog.id %>)"><i class="fa fa-times"></i></button>
+                                            <a href="blog/<%= blog.id %>"><button type="button" class="btn btn-edit btn-circle" ><i class="fa fa-pencil"></i></button></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <% }) %>
+                            </tbody>
+                        </table>
+                        <% } else { %>
+                        <div style="width:100%; float:left">NO DATA</div>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /#page-wrapper -->
+</div>
+<% include layout/footer.ejs %>

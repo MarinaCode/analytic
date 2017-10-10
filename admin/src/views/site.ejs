@@ -1,0 +1,58 @@
+
+<% include layout/head.ejs %>
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+
+        <!-- Top Menu Items -->
+        <% include layout/nav.ejs%>
+        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+        <% include layout/sidenav.ejs %>
+        <!-- /.navbar-collapse -->
+    </nav>
+
+    <div id="page-wrapper">
+
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                        Tables
+                    </h1>
+                </div>
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>Url</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <% sites.forEach(function (site) {
+                             var site_url = JSON.parse(site.data).data.url;
+                            %>
+                                <tr>
+                                    <td><a href = "#"><%- site.id %> </a></td>
+                                    <td><a href = "<%= site_url %>" target = '_blank'><%- site_url %></a></td>
+                                </tr>
+                            <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /#page-wrapper -->
+</div>
+<% include layout/footer.ejs %>

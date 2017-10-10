@@ -1,0 +1,60 @@
+
+<% include layout/head.ejs %>
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <% include layout/nav.ejs%>
+        <% include layout/sidenav.ejs %>
+    </nav>
+
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header"> New Post </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <form role="form" name = "postForm" id = "postForm">
+                                    <div class="form-group">
+                                        <label>Title</label>
+                                        <input class="form-control"  placeholder="Title"  name = "title" value="<%- blog.title %>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        <textarea class="form-control" rows="3" name = "description" id = "description"> <%- blog.description %></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Author</label>
+                                        <input class="form-control" placeholder="Author" name = "author" value="<%- blog.author %>">
+                                    </div>
+                                    <div class="image-block">
+                                        <img src="" />
+                                        <input type="file" class="form-control" name="file" value="<%- blog.image_url %>"/>
+                                    </div>
+                                    <!--<div class="form-group">-->
+                                        <!--<label>Title</label>-->
+                                        <!--<input class="form-control">-->
+                                    <!--</div>-->
+                                    <button type="button" class="btn btn-default" onclick="editPost()">Submit Button</button>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- /.row (nested) -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /#page-wrapper -->
+</div>
+<% include layout/footer.ejs %>
